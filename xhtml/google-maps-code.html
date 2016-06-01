@@ -1,0 +1,48 @@
+<!-- To go in the HEAD -->
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+// <![CDATA[
+
+	function initialize() {
+		
+		// Define your co-ordinates here
+		var latlng = new google.maps.LatLng(54.91925,-1.40974);
+		
+		var myOptions = {
+			zoom: 14,
+			center: latlng,
+			backgroundColor: 'transparent',
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		
+		// Define your custom marker here
+		var image = '/img/content/hsf-map-pin.png';
+		var map = new google.maps.Map(document.getElementById('map'), myOptions);
+		var marker = new google.maps.Marker({
+		  position: new google.maps.LatLng(54.91925,-1.40974),
+		  map: map,
+		  icon: image
+		});
+
+	}
+
+// ]]>
+</script>
+
+<!-- To go on the BODY tag -->
+
+<body onLoad="initialize()">
+
+<!-- Where you want the map to appear -->
+
+<div class="google_map">
+	<div id="map" class="map"></div>
+</div>
+
+<!-- CSS
+
+	.google_map { position: relative; top: 0px; left: 0px; width: 960px; height: 403px;}
+	.map { position: absolute; top: 10px; left: 10px; width: 916px; height: 326px;}
+
+-->

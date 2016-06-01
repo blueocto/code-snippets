@@ -1,0 +1,38 @@
+<!-- HTML -->
+
+<form id="contact" class="contactform" action="" method="post">
+	<p>
+		<label for="fullname">Full Name</label>
+		<input name="fullname" type="text" value="<?= $fullname ?>" placeholder="Full name&hellip;" />
+	</p>
+	<p>
+		<label for="telephone">Telephone</label>
+		<input name="telephone" type="text" value="<?= $telephone ?>" placeholder="Telephone&hellip;" />
+	</p>
+	<p>
+		<label for="email">Email</label>
+		<input name="email" type="text" value="<?= $email ?>" placeholder="Email&hellip;" />
+	</p>
+	<p>
+		<label for="subject">Subject</label>
+		<input name="subject" type="text" value="<?= $subject ?>" placeholder="Subject&hellip;" />
+	</p>
+	<p>
+		<label for="message">Your Message</label>
+		<textarea name="message" cols="" rows="" placeholder="Your message&hellip;"><?= $message ?></textarea>
+	</p>
+</form>
+<a href="#" id="sendmsg" class="contact_btn">Submit</a>
+
+<!-- CSS
+
+	.contactform { padding-top: 20px;}
+    .contactform p { margin-bottom: 10px;}
+        .contactform label { display: inline-block; width: 200px;}
+        .contactform input[type="text"], 
+        .contactform textarea { padding: 8px 10px; width: 300px; font-size: 16px; color: #535353; border: 1px solid #CCC; background: #FEFEFE;}
+        .contactform textarea { height: 150px;}
+
+	.contact_btn { display: inline-block; margin: 0 0 10px 204px; padding: 8px 10px; color: #FFF; text-decoration: none; background-color: #2D705E;}
+
+-->
