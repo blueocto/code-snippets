@@ -1,0 +1,1 @@
+<body class="<?= basename($_SERVER['PHP_SELF'], ".php")?>">

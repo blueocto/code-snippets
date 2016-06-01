@@ -1,0 +1,1 @@
+<?php echo '<pre>'; print_r($sub_category); echo '</pre>'; ?>
