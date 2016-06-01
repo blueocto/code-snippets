@@ -12,23 +12,23 @@
 <!-- Once the feed is working, use this code to pull in -->
 
 <?php
-                                    
-    $ch = curl_init("http://www.example.com/feed/");
-                    
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-                    
-    $feed = curl_exec($ch);
-    curl_close($ch);
-    fclose($fp);
-                    
-    $xml = new SimpleXMLElement($feed);
-            
-    foreach($xml->channel->item as $post)
-    {
-        echo '<h4>'.$post->title.'</h4>';
-    }
-                    
+									
+	$ch = curl_init("http://www.example.com/feed/");
+					
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+					
+	$feed = curl_exec($ch);
+	curl_close($ch);
+	fclose($fp);
+					
+	$xml = new SimpleXMLElement($feed);
+			
+	foreach($xml->channel->item as $post)
+	{
+		echo '<h4>'.$post->title.'</h4>';
+	}
+					
 ?>
 
 <!-- 
