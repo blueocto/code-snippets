@@ -1,0 +1,26 @@
+/*** CSS ***/
+
+.button_purple {
+	background: url("your_right_end_optional_arrow.png") no-repeat scroll right top transparent;
+	color: #FFFFFF !important;
+	display: inline-block;
+	height: 36px;
+	padding: 0 32px 0 0;
+	text-decoration: none;
+}
+
+.button_purple span {
+	background: url("your_left_extended_middle.png") no-repeat scroll left top transparent;
+	display: block;
+	line-height: 36px;
+	padding: 0 0 0 20px;
+}
+
+
+/*** HTML
+
+<a class="button_purple" title="" href="#">
+	<span>See our full list of jobs</span>
+</a>
+
+***/

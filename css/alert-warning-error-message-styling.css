@@ -1,0 +1,23 @@
+/*** CSS ***/
+
+.notification.success { background: url("https://dl.dropbox.com/u/37571394/error_icons/success.png") no-repeat 15px 15px #F1FFBF; border-color: #A6D50F;}
+.notification.error { background: url("https://dl.dropbox.com/u/37571394/error_icons/error.png") no-repeat 15px 15px #FECDC6; border-color: #F45D43;}
+.notification.warning { background: url("https://dl.dropbox.com/u/37571394/error_icons/warning.png") no-repeat 15px 15px #FFECB0; border-color: #FFBC2A;}
+.notification.info { background: url("https://dl.dropbox.com/u/37571394/error_icons/information.png") no-repeat 15px 15px #D4E7F5; border-color: #589AD7;}
+.notification.tip { background: url("https://dl.dropbox.com/u/37571394/error_icons/tip.png") no-repeat 15px 15px #FFECCD; border-color: #DD9854;}
+.notification { margin-bottom: 20px; padding: 12px 12px 12px 44px; border: 1px solid #FFF; -webkit-border-radius: 2px; border-radius: 2px;}
+
+
+/*** HTML
+
+<div class="notification success">Etiam convallis, sem molestie bibendum dictum, ipsum diam scelerisque arcu, ac adipiscing elit tellus quis arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac ante quam, a lobortis arcu. Vestibulum elementum elit sit amet quam varius adipiscing. Praesent eget velit turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus quis scelerisque nulla. Curabitur in neque a sem pulvinar porttitor. Ut egestas ligula eu magna ornare suscipit ac id nibh.</div>
+
+<div class="notification error">Etiam convallis, sem molestie bibendum dictum, ipsum diam scelerisque arcu, ac adipiscing elit tellus quis arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac ante quam, a lobortis arcu. Vestibulum elementum elit sit amet quam varius adipiscing. Praesent eget velit turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus quis scelerisque nulla. Curabitur in neque a sem pulvinar porttitor. Ut egestas ligula eu magna ornare suscipit ac id nibh.</div>
+
+<div class="notification warning">Etiam convallis, sem molestie bibendum dictum, ipsum diam scelerisque arcu, ac adipiscing elit tellus quis arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac ante quam, a lobortis arcu. Vestibulum elementum elit sit amet quam varius adipiscing. Praesent eget velit turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus quis scelerisque nulla. Curabitur in neque a sem pulvinar porttitor. Ut egestas ligula eu magna ornare suscipit ac id nibh.</div>
+
+<div class="notification info">Etiam convallis, sem molestie bibendum dictum, ipsum diam scelerisque arcu, ac adipiscing elit tellus quis arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac ante quam, a lobortis arcu. Vestibulum elementum elit sit amet quam varius adipiscing. Praesent eget velit turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus quis scelerisque nulla. Curabitur in neque a sem pulvinar porttitor. Ut egestas ligula eu magna ornare suscipit ac id nibh.</div>
+
+<div class="notification tip">Etiam convallis, sem molestie bibendum dictum, ipsum diam scelerisque arcu, ac adipiscing elit tellus quis arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac ante quam, a lobortis arcu. Vestibulum elementum elit sit amet quam varius adipiscing. Praesent eget velit turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus quis scelerisque nulla. Curabitur in neque a sem pulvinar porttitor. Ut egestas ligula eu magna ornare suscipit ac id nibh.</div>
+
+***/
