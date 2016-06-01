@@ -1,0 +1,50 @@
+/* Nicked from Twitter Bootstrap, but mine works on IE7 and iPad!! */
+
+/* ==========================================================================
+   Modal window
+========================================================================== */
+/*.hide { display: none;}*/
+.show { display: block;}
+.invisible { visibility: hidden;}
+.fade { -webkit-transition: opacity 0.15s linear; -moz-transition: opacity 0.15s linear; -ms-transition: opacity 0.15s linear; -o-transition: opacity 0.15s linear; transition: opacity 0.15s linear; opacity: 0;}
+	.fade.in { opacity: 1;}
+.close { float: right; font-size: 20px; font-weight: bold; line-height: 18px; color: #000; text-shadow: 0 1px 0 #FFF; opacity: 0.2; filter: alpha(opacity=20);}
+	.close:hover { color: #000; text-decoration: none; opacity: 0.4; filter: alpha(opacity=40); cursor: pointer;}
+.modal.fade { top: -25%;
+ -webkit-transition: opacity .3s linear, top .3s ease-out;
+ -moz-transition: opacity .3s linear, top .3s ease-out;
+ -ms-transition: opacity .3s linear, top .3s ease-out;
+ -o-transition: opacity .3s linear, top .3s ease-out;
+ transition: opacity .3s linear, top .3s ease-out;}
+.modal.fade.in { top: 50%;}
+
+/*
+.modal-open .dropdown-menu { z-index: 2050;}
+.modal-open .dropdown.open { *z-index: 2050;}
+.modal-open .popover { z-index: 2060;}
+.modal-open .tooltip { z-index: 2070;}
+*/
+.modal-backdrop { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 1040; background-color: #000;}
+.modal-backdrop.fade { opacity: 0;}
+.modal-backdrop, .modal-backdrop.fade.in { opacity: 0.8; filter: alpha(opacity=80);}
+
+.modal { position: fixed; top: 50%; left: 50%; z-index: 9999; margin: -350px 0 0 -362px; width: 700px; height: 440px /*480px*/; overflow: auto; background: #FFF url("../img/content/lightbox.png") 0 0 no-repeat; 
+	border: 1px solid #999; border: 1px solid rgba(0, 0, 0, 0.3); 
+	-webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3); box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3); -webkit-background-clip: padding-box; -moz-background-clip: padding-box; background-clip: padding-box;
+	/* IE6-7 */ *border: 1px solid #999;
+}
+/* IE7 fix 
+.ie7 .hdr { z-index: 1;} */
+.ie7 .modal-backdrop, .ie7 .modal-backdrop.fade.in { opacity: 0; filter: alpha(opacity=0);}
+/* IE7 fix .ie7 body { z-index: 1;}*/
+
+	.modal_header { padding: 9px 15px; height: 15px;}
+		.modal_header .close { margin-top: 2px;}
+	.modal_body { padding: 100px 70px 0;}
+		.modal h3 { margin-bottom: 17px; font-size: 18px;}
+		.modal label { margin-left: 9px; font-weight: bold; color: #7F3F98;}
+		a.continue_btn { display: block; margin-top: 25px; width: 95px; height: 25px; background: url("../img/continue-btn.png") 0 0 no-repeat;}
+		a.continue_btn:hover { background-position: bottom;}
+	.modal_footer { padding: 55px 10px 0 /*46px 10px 0*/;}
+		.modal_footer p { text-align: center;}
+		/*.modal_footer small { display: block; margin-bottom: 10px; text-align: center; font-size: 10px; color: #8E8E8E;}*/

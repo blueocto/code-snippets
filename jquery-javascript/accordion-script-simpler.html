@@ -1,0 +1,37 @@
+<!-- This allows links to work inside the expanding box. -->
+
+<ul>
+	<li><a href="/contact-us/" title="Book Your Space"></a></li>
+	<li id="accordion" class="accordion">
+		<a href="#" title="Click to expand"></a>
+		<ul id="dropdown" class="dropdown">
+			<li><a href="/the-advertiser-whickham/">Whickham</a></li>
+			<li><a href="/the-advertiser-low-fell/">Low Fell</a></li>
+			<li><a href="/advertiser-burnopfield-sunniside/">Burnopfield, Sunniside, Marley Hill, Byemoor, Tanfield Village &amp; Tantobie</a></li>
+			<li><a href="/the-advertiser-prudhoe-wylam-ovingham-ovington/">Prudhoe, Wylam, Ovingham &amp; Ovington</a></li>
+			<li><a href="/the-advertiser-blaydon-winlaton/"> Blaydon &amp; Winlaton</a></li>
+			<li><a href="/the-advertiser-chapel-park-westerhope/">Chapel Park &amp; Westerhope</a></li>
+		</ul>
+	</li>
+	<li><a href="/tvp-mediapack.pdf" title="Download Media Pack"></a></li>
+	<li><a href="#" title="Special Offers"></a></li>
+	<li><a href="#" title="Payment Terms"></a></li>
+</ul>
+
+
+<script>
+	$('#dropdown').hide();
+	$('#accordion a').click(function(){
+		$('#dropdown').slideDown();
+	e.preventDefault();
+	});
+</script>
+
+
+<!-- optional CSS -->
+<style>
+/* dropdown */
+.dropdown { display: block; margin-top: 2px; margin-bottom: -1px;}
+.dropdown li {}
+.dropdown a { padding: 10px; width: 228px; height: auto; font-weight: 700; color: #FFF; background-color: #F19B3D;}
+</style>
