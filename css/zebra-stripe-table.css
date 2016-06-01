@@ -1,0 +1,8 @@
+.feedback table {}
+	/* zebra stripes */
+.feedback tr:nth-of-type(2n) td:first-child { background-color: #F7F7F7!important}
+.feedback tr:nth-of-type(2n) td:nth-of-type(2n) { background-color: #EfEFEf;}
+.feedback tr:nth-of-type(2n) td:nth-of-type(2n+1) { background-color: #E9E9E9}
+.feedback tr:nth-of-type(2n+1) td:first-child { background-color: #F0F0F0!important}
+.feedback tr:nth-of-type(2n+1) td:nth-of-type(2n) { background-color: #EBEBEB;}
+.feedback tr:nth-of-type(2n+1) td:nth-of-type(2n+1) { background-color: #E5E5E5;}

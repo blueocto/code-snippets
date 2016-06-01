@@ -1,0 +1,3 @@
+// Was appearing in SourceTree on Windows
+
+git config core.autocrlf false

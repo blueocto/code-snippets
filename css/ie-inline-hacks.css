@@ -1,0 +1,20 @@
+/* IE6 */
+*html .color { color: #666;}
+
+/* IE7 */
+*:first-child+html .color { color: #666;}
+or
+*html .color { color: #666;}
+
+/* IE8 */
+.color { color: #6669/;} /* this must come after any other hacks for that particular element */
+or
+.color { color: #6669;}
+
+/* Alternatively, if the above doesnt work, try these */
+body {  
+color: red; /* all browsers, of course */  
+color : green9; /* IE8 and below */  
+*color : yellow; /* IE7 and below */  
+_color : orange; /* IE6 */  
+}

@@ -1,0 +1,12 @@
+/* ordered list */
+
+ol { counter-reset: level1;} 
+ol li { /* usual styles here */ }
+ol li:before { content: counter(level1) ". "; counter-increment: level1; color: #1AABCF;}
+
+
+/* unorderd list */
+
+ul { margin: 19px 0 19px 22px; padding: 0; counter-reset: level1; list-style: none;}
+ul li { padding: 0 0 11px;}
+ul li:before { content: '\2022'; float: left; padding: 0 10px 11px 0 /* bottom padding must match li */; font-size: 31px; color: #F37F1F; vertical-align: sub;}

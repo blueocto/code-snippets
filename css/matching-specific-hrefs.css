@@ -1,0 +1,9 @@
+/*** "Substring matching attribute selectors" ***/
+
+// Begins with
+
+a[href^="http://www."] {}
+
+// Ends with
+
+a[href$=".pdf"] {}

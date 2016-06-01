@@ -1,0 +1,18 @@
+/* If you want to show a solid, red line, use the first piece of code */
+
+hr { color: #f00; background-color: #f00; height: 5px; }
+
+
+/* 
+	If you want to use an image for HR use the second piece of code. It looks great in Mozilla, where only the image is visible, however the result is not so good in IE and Opera, because these two browsers display a border around the image.
+*/
+
+div.hr { height: 15px; background: #fff url(bg.gif) no-repeat scroll center;}
+div.hr hr { display: none;}
+
+
+/* Because I did not find a workaround, I've added a div in the source code
+
+<div class="hr"><hr /></div>
+
+ */

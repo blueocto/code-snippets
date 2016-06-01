@@ -1,0 +1,20 @@
+.tabs { list-style: none; position: absolute; top: 0; left: 0;}
+.tabs li { display: inline;}
+.tabs a { float: left; display: block; width: 183px; height: 50px; text-align: center; line-height: 50px; text-transform: uppercase; background-color: #FFF; border: 1px solid #E5E5E5; border-bottom-color: #B2B2B2; cursor: pointer;
+/* drop shadow to the right 
+-webkit-box-shadow: 5px 0px 3px 3px #D3D5D4; box-shadow: 5px 0px 3px 3px #D3D5D4; */
+/* gradient */
+background: #f4f6f5; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  #f4f6f5 0%, #e5e5e5 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#f4f6f5), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  #f4f6f5 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  #f4f6f5 0%,#e5e5e5 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  #f4f6f5 0%,#e5e5e5 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  #f4f6f5 0%,#e5e5e5 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f6f5', endColorstr='#e5e5e5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.tabs a:hover {}
+.tabs a.active { height: 48px; border-top: 3px solid #F6B331; border-left-color: #B2B2B2; border-right-color: #B2B2B2; border-bottom-color: #FFF; background: #FFF;}
+.content { display: none; position: relative; top: 51px; padding: 31px 21px; border: 1px solid #B2B2B2;}
+.content h3 { margin-bottom: 24px; padding-bottom: 15px; font-size: 25px; letter-spacing: 0.04em; border-bottom: 1px solid #B2B2B2;}
+.content p { margin-bottom: 22px;}

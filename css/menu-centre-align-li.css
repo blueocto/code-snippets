@@ -1,0 +1,3 @@
+.hdr_nav { list-style: none; position: relative; top: 0; left: 0; width: 0px; height: 0px; text-align: center; background: xx;}
+.hdr_nav li { display: inline;}
+.hdr_nav a { display: inline-block; padding: 0 34px; font: 14px/44px 'FSAlbertRegular'; color: #FFF; text-decoration: none;}

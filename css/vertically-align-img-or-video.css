@@ -1,0 +1,58 @@
+/* A fluid container */
+.item { float: left; width: 33%; border-left: 1px solid #000;}
+
+/* We enforce aspect-ratio here, 4:3 for this example */
+.imgFrame { position: relative; text-align: center; width: 100%; height: 0; padding-bottom: 50%;}
+
+/* This block will take up the full height and width of the containing block which enforces an aspect ratio. We set font-size to zero to remove inline-block spacing */
+.innerFrame { border-top: 3px solid rgba(0, 0, 0, 0.1); border-bottom: 3px solid rgba(0, 0, 0, 0.1); position: absolute; height: 100%; width: 100%; font-size: 0;}
+
+/* Set an inline element that has full height of container and vertical alignment set to middle. The following image will align to this */
+.innerFrame:before, 
+.frameBefore { content: ""; display: inline-block; height: 100%; vertical-align: middle;}
+
+/* Make sure the image stays vertically aligned, and allow it to resize */
+.innerFrame img { max-width: 100%; height: auto; vertical-align: middle;}
+
+
+/* the HTML
+
+<div class="item">
+	<div class="imgFrame">
+		<div class="innerFrame">
+			<img src="http://dummyimage.com/400x300/000/fff.jpg&text=4:3" alt="" />
+		</div>
+	</div>
+</div>
+<div class="item">
+	<div class="imgFrame">
+		<div class="innerFrame">
+			<img src="http://dummyimage.com/300x200/000000/fff.jpg&text=3:2" alt="" />
+		</div>
+	</div>
+</div>
+<div class="item">
+	<div class="imgFrame">
+		<div class="innerFrame">
+			<img src="http://dummyimage.com/320x180/000000/fff.jpg&text=16:9" alt="" />
+		</div>
+	</div>
+</div>
+
+<!-- Add some conditional love for IE7 -->
+<!-- [if IE 7]>
+<style>
+	// Fake innerFrame:before for IE7 using proprietory MS expressions
+	.innerFrame {
+		list-style:none;
+		behavior: expression(
+			function(t){
+				t.insertAdjacentHTML('afterBegin','<span class="frameBefore"></span>');
+				t.runtimeStyle.behavior = 'none';
+			}(this)
+		);
+	}
+</style>
+<![endif]-->
+
+*/

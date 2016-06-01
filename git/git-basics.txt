@@ -1,0 +1,49 @@
+//start by logging into Github.com and creating a new Repository (project)
+//for the sake of argument, we'll call it chocolate-bunnies
+
+//open up Git Bash, software for Windows
+
+//navigate to your Projects on your computer, e.g. it starts in Users/Caroline, so I would
+cd Github
+//which takes me inside the Github folder
+
+//login
+git config --global user.name "Caroline Murphy"
+git config --global user.email "cmurphydesign@gmail.com"
+
+//we then need to make a local folder with the same "Repo" name of chocolate-bunnies
+mkdir chocolate-bunnies
+
+//go into that folder
+cd chocolate-bunnies
+
+//to get Github to understand this folder matches, type the following
+git init
+- > Initialized empty Git repository in c:/Users/Caroline/Github.chocolate-bunnies/.git/
+
+//we then create a readme.txt to explain what this project is all about
+touch README
+git add README
+
+//we then "save" this file in Github's memory - we can have upto 50 "saves" or commits
+// the -m code creates the message we see in the GUI / user friendly version online
+git commit -m "first commit"
+
+//we then upload this file to the repo online
+git remote add origin git@github.com:blueocto/chocolate-bunnies.git
+git push -u origin master
+- > Enter passphrase for key //this applies if you've setup your SSH
+- > Counting objects: , done.
+- > Writing objects: 100% (3/3), 217 bytes, done.
+- > Total 3 (delta 0), reused 0 (delta 0)
+- > To git@github.com:blueocto/chocolate-bunnies.git
+- >  * [new branch] master -> master
+- > Branch master set up to track remote branch master from origin.
+
+//to check periodically, if we have any recent saves (commits) that have not been uploaded (pushed)
+git status
+
+//Now, if we updated that README file with more information, we'll want to save and upload that
+git add README
+git commit -m "second commit"
+git push origin master
