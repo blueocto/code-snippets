@@ -1,0 +1,48 @@
+/*** EMs ***/
+
+//target / context = result
+
+//Define the em value by using the above calculation
+
+body { font-size: 100%}
+
+// This generally equates to font-size being 16px for most browsers
+
+body { font-size: 62.5%}
+
+//This generally equates to font-size 10px to give an even base to start with (used in reset)
+
+So if our Heading font-size is 30px, the context is the <body> tag, so we:
+
+30px (target) / 16px (context) = 1.875em
+
+//If say, a span is within a p tag, the <p> would be the context.
+
+//For line-height, the font-size is the context, e.g.
+
+36px (target, line-height) / 30px (context, font-size) = 1.2em
+
+
+/*** REMs ***/
+
+//Browser support is as follows (http://caniuse.com/rem)
+
+Internet Explorer 9 +
+Firefox 3.6 +
+Chrome 6.0 +
+Safari 5.0 +
+Opera 11.6 +
+iOS Safari 4.0-4.1 +
+Opera Mobile 12.0 +
+Android Browser 2.1 +
+
+// To support the likes of Opera Mini and Internet Explorer 6-8, a fallback of pixels can be used, for example:
+
+.main-title cite {
+  font-size: 42px;
+  font-size: 2.625rem;  /* 42px (target) dividedby 16px (context) */
+}
+
+//REM uses the body font-size as its context, always. So you don't have the hassle of working out the context so much.
+
+//Useful : SASS mixin for out-putting rem and px, based off pixel size : https://github.com/bitmanic/rem

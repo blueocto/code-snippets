@@ -1,0 +1,4 @@
+To run WordPress your host just needs a couple of things:
+PHP version 5.2.4 or greater
+MySQL version 5.0 or greater
+The requirements have changed as of WordPress 3.2. The minimum requirements for WordPress 3.1 are PHP 4.3 and MySQL 4.1.2.

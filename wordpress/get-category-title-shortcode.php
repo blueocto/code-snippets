@@ -1,0 +1,1 @@
+<?php printf( single_cat_title( '', false ) ); ?>

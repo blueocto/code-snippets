@@ -1,0 +1,23 @@
+// Download latest WP build, strip out README and LICENCE, Akismet and Hello plugins.
+
+// Add theme with unique name, change screenshot.png
+
+// Create wp-config.php
+
+// Add a Unique Database Prefix and Authentication Keys
+
+// Install Using wp-admin/install.php
+
+// Remove wp-admin/install.php
+
+// Login to the Dashboard and Complete User Profile
+
+// Edit Tagline and Timezone
+
+// Review Writing, Reading, and Discussion Settings
+
+// Add .htaccess file in the root, set to 777, Change Permalink Structure, set to 644
+
+// Change "browncoats" to "_your_theme_name_" and add settings for Custom Post Types in functions.php
+
+// Set the wp-content folder permissions to 777, recurse through folders

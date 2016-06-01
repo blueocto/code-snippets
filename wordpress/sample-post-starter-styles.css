@@ -1,0 +1,71 @@
+/* sidebar */
+.widget { margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px dotted #DFDFDF;}
+.widget ul { margin-left: 20px;}
+.widget ul a { color: #000; text-decoration: underline;}
+.widget ul a:hover { color: #333; text-decoration: none;}
+
+#s { display: block; margin-bottom: 10px; width: 170px;}
+#searchsubmit { display: block;}
+
+/* blog listing */
+.type-post { margin-bottom: 30px; border-bottom: 1px dotted #DFDFDF;}
+.type-post h1 { margin-bottom: 32px;}
+.type-post h2 { margin-bottom: 27px;}
+	.type-post h2 a { text-decoration: none;}
+.type-post h3 { margin-bottom: 22px; font-size: 22px;}
+.type-post h4 { margin-bottom: 17px; font-size: 17px;}
+.type-post h5 { margin-bottom: 13px;}
+.type-post h6 { margin-bottom: 11px;}
+.readmore { display: inline-block; margin-bottom: 20px; color: #FFF!important; text-decoration: none!important;}
+.type-post hr { margin: 1em 0; border: 0 none; border-top: 1px dotted #DFDFDF;}
+.type-post ul, 
+.type-post ol { margin-left: 30px; margin-bottom: 20px;}
+.type-post table { margin: 20px 0; width: 70%;}
+	.type-post th, 
+	.type-post td { padding: 5px; border: 1px dashed #CCC;}
+	.type-post th { text-align: left;}
+	.type-post td { margin-bottom: 0;}
+
+
+/*** WordPress Core Image Styles ***/
+.generic_page img { max-width: 907px; height: auto;}
+
+.alignnone { margin: 5px 20px 20px 0; padding: 10px; background-color: #FFF; border: 1px solid #EDEDED;}
+.aligncenter, 
+div.aligncenter { display: block; margin: 5px auto 20px auto;}
+.alignright { float: right; margin: 5px 0 20px 20px;}
+.alignleft { float: left; margin: 5px 20px 20px 0;}
+.aligncenter { display: block; margin: 5px auto;}
+a img.alignright { float: right; margin: 5px 0 20px 20px;}
+a img.alignnone { margin: 5px 20px 20px 0;}
+a img.alignleft { float: left; margin: 5px 20px 20px 0;}
+a img.aligncenter { display: block; margin-left: auto; margin-right: auto;}
+.wp-caption { background: #FFF; border: 1px solid #EDEDED; max-width: 96%; padding: 13px 10px 10px 10px; text-align: center;}
+.wp-caption.alignnone { margin: 4px 20px 20px 0;}
+.wp-caption.alignleft { margin: 4px 20px 20px 0;}
+.wp-caption.alignright { margin: 4px 0 20px 20px;}
+.wp-caption img { border: 0 none; height: auto; margin: 0; max-width: 98.5%; padding: 0; width: auto;}
+.wp-caption p.wp-caption-text { margin: 0; padding: 10px; color: #999;}
+img.wp-smiley { vertical-align: middle;}
+
+/*** WordPress Gallery ***/
+.gallery { margin: 0 auto 18px;}
+.gallery .gallery-item { float: left; margin-top: 0; text-align: center; max-width: 155px;}
+.gallery img { border: 1px solid #DDD;}
+.gallery .gallery-caption { font-size: 12px; margin: 0 0 12px;}
+.gallery dl { margin: 0;}
+.gallery br+br { display: none;}
+.attachment-gallery img { background: #FFF; border: 1px solid #f0f0f0; display: block; height: auto; margin: 15px auto; max-width: 96%; padding: 5px; width: auto;}
+.gallery-meta .iso, 
+.gallery-meta .camera, 
+.gallery-meta .shutter, 
+.gallery-meta .aperture, 
+.gallery-meta .full-size, 
+.gallery-meta .focal-length { display: block;}
+
+/*** Post Thumbnails ***/
+img.wp-post-image, 
+img.attachment-full, 
+img.attachment-large, 
+img.attachment-medium, 
+img.attachment-thumbnail { display: block; margin: 15px auto; width: auto;}
