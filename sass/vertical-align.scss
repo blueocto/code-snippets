@@ -1,0 +1,23 @@
+// Placeholder selectors were introduced to solve this exact problem. They are very similar to class selectors, but instead of using a period (.) at the start, the percent character (%) is used. Placeholder selectors have the additional property that they will not show up in the generated CSS, only the selectors that extend them will be included in the output.
+
+%vertical-align-parent {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+%vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+// Then in your CSS...
+
+.parent {
+    @extend %vertical-align-parent;
+}
+.element {
+    @extend %vertical-align;
+}

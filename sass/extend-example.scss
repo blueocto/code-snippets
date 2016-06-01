@@ -1,0 +1,10 @@
+// Before, extending your button for different states
+.btn { font-weight: bold;}
+.btn-error { background: red;}
+.btn-next { background: green;}
+
+// After, inherit btn styles, add difference
+.btn-error { 
+	@extend .btn; 
+	background: red;
+}

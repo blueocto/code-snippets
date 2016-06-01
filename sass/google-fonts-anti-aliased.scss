@@ -1,0 +1,7 @@
+// Extend
+
+.googlefont-antialiased { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
+
+// Usage
+
+h1 { font-family: 'museo_sans_rounded900', sans-serif; @extend .googlefont-antialiased;}

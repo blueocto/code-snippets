@@ -1,0 +1,10 @@
+// Extend
+
+.filter-greyscale { filter: grayscale(100%); filter: gray; -webkit-filter: grayscale(1);}
+
+// Usage
+
+img { 
+	width: 100%; 
+	@extend .filter-greyscale;
+}
