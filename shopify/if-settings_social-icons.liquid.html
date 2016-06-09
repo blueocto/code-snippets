@@ -1,0 +1,57 @@
+<!-- theme.liquid -->
+
+<div id="social">
+{% if settings.facebook_url != blank %}<a href="{{ settings.facebook_url }}" target="_blank" class="facebook"></a>{% endif %}
+{% if settings.twitter_url != blank  %}<a href="{{ settings.twitter_url }}" target="_blank" class="twitter"></a>{% endif %}
+{% if settings.instagram_url != blank  %}<a href="{{ settings.instagram_url }}" target="_blank" class="instagram"></a>{% endif %}
+{% if settings.pinterest_url != blank  %}<a href="{{ settings.pinterest_url }}" target="_blank" class="pinterest"></a>{% endif %}
+{% if settings.youtube_url != blank  %}<a href="{{ settings.youtube_url }}" target="_blank" class="youtube"></a>{% endif %}
+{% if settings.vimeo_url != blank  %}<a href="{{ settings.vimeo_url }}" target="_blank" class="vimeo"></a>{% endif %}
+{% if settings.flickr_url != blank  %}<a href="{{ settings.flickr_url }}" target="_blank" class="flickr"></a>{% endif %}
+{% if settings.show_rss == true %}<a href="/blogs/{{ settings.main_blog }}.atom" target="_blank" class="rss"></a>{% endif %}
+</div>
+
+<!-- settings.html -->
+
+<fieldset>
+    <legend>Social Media </legend>
+    <p><small>Social media links appear as icons</small></p>
+    <table>
+        <tr>
+            <td><label for="facebook_url">Your Facebook page URL<br /><small>Start the URL with http://</small></label></td>
+            <td><input type="text" name="facebook_url" id="facebook_url" /></td>
+        </tr>
+        <tr>
+            <td><label for="twitter_url">Your Twitter page URL <br /><small>Start the URL with http://</small></label></td>
+            <td><input type="text" name="twitter_url" id="twitter_url" /></td>
+        </tr>
+        <tr>
+            <td><label for="instagram_url">Your Instagram page URL<br /><small>Start the URL with http://</small></label></td>
+            <td><input type="text" name="instagram_url" id="instagram_url" /></td>
+        </tr>
+        <tr>
+            <td><label for="pinterest_url">Your Pinterest page URL<br /><small>Start the URL with http://</small></label></td>
+            <td><input type="text" name="pinterest_url" id="pinterest_url" /></td>
+        </tr>
+        <tr>
+            <td><label for="youtube_url">Your YouTube page URL<br /><small>Start the URL with http://</small></label></td>
+            <td><input type="text" name="youtube_url" id="youtube_url" /></td>
+        </tr>
+        <tr>
+            <td><label for="vimeo_url">Your Vimeo page URL<br /><small>Start the URL with http://</small></label></td>
+            <td><input type="text" name="vimeo_url" id="vimeo_url" /></td>
+        </tr>
+        <tr>
+            <td><label for="flickr_url">Your Flickr page URL<br /><small>Start the URL with http://</small></label></td>
+            <td><input type="text" name="flickr_url" id="flickr_url" /></td>
+        </tr>
+        <tr>
+            <td><label for="show_rss">Show RSS?</label></td>
+            <td><input type="checkbox" id="show_rss" name="show_rss" /></td>
+        </tr>
+        <tr>
+            <td><label for="main_blog">Your blog </label></td>
+            <td><select class="blog" name="main_blog" /></td>
+        </tr>
+    </table>
+</fieldset>

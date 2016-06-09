@@ -1,0 +1,90 @@
+<!-- HEAD -->
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+var map;
+function initialize() {
+var myOptions = {
+zoom: 8,
+center: new google.maps.LatLng(55.002014,-1.619607),
+panControl: true,
+zoomControl: true,
+scaleControl: true,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+map = new google.maps.Map(document.getElementById('map_canvas'),myOptions);
+var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(54.971123,-1.581069),
+              map: map
+            });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<style>
+#map_canvas { width: 100%; height: 250px;}
+</style>
+
+
+<!-- BODY -->
+
+<div id="map_canvas"></div>
+
+
+<!-- More than 1 map... -->
+
+<!-- Google Maps -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">    
+    // <![CDATA[
+
+    function initialize()
+    {
+        var latlng = new google.maps.LatLng(54.970508,-1.613148);
+        var latlng2 = new google.maps.LatLng(55.953693,-3.192669);
+        var myOptions =
+        {
+            zoom: 15,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+    
+        var myOptions2 =
+        {
+            zoom: 15,
+            center: latlng2,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+    
+        var map = new google.maps.Map(document.getElementById("map_canvas1"), myOptions);
+        
+        var map2 = new google.maps.Map(document.getElementById("map_canvas2"), myOptions2);
+    
+        var myMarker = new google.maps.Marker(
+        {
+            position: latlng,
+            map: map,
+            panControl: true,
+            zoomControl: true,
+            scaleControl: true
+       });
+    
+        var myMarker2 = new google.maps.Marker(
+        {
+            position: latlng2,
+            map: map2,
+            panControl: true,
+            zoomControl: true,
+            scaleControl: true
+        });
+    }
+    
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    // ]]>
+    </script>
+
+
+<!-- body -->
+<div id="map_canvas1"></div>
+<div id="map_canvas2"></div>

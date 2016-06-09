@@ -1,0 +1,29 @@
+<!-- Set this in your CSS -->
+
+html, body { width: 104%; overflow: visible;}
+
+
+<!-- Remove this from your header -->
+
+<meta name="viewport" content="width=device-width" />
+
+
+<!-- Or!! -->
+
+If the site is scaling too big (obviously, 960px will not fit on 768px)
+
+Set a min-height of 1240px to the container and DO include this in the header:
+
+<meta name="viewport" content="width=device-width" />
+
+
+<!-- Better yet! -->
+
+/* ==========================================================================
+    Apple mobile + tablet devices
+========================================================================== */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 1024px) {
+    body { width: 1000px;}
+}

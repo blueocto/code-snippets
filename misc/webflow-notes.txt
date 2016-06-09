@@ -1,0 +1,10 @@
+* Use x-ray view for outlines
+* Utilises Bootstrap 3
+
+* Section = full width container
+* Container = 960px centered
+* Columns > settings - how many
+* Div Block - free form, advanced (margin: 0 auto; width: xx) custom
+
+* Tick the box for "set @2x" for retina / non-retina screens
+* Link block - for adding links to images or other items

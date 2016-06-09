@@ -1,0 +1,11 @@
+<div class="section">
+    
+    <h5>Categories</h5>
+    
+    <ul>
+        {% for tag in blog.all_tags %}
+        <li>{{ tag | link_to_tag: tag }}</li>
+        {% endfor %}
+    </ul>
+    
+</div>

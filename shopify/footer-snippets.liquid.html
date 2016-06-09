@@ -1,0 +1,14 @@
+<!-- Copyright -->
+
+Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.
+
+<!-- Footer link list -->
+
+// the 'handle' of the Navigation menu would be "footer"
+{% if linklists.footer.links.size > 0 %}
+<nav>
+{% for link in linklists.footer.links %}
+<a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+{% endfor %}
+</nav>
+{% endif %}

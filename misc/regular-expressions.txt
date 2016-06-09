@@ -1,0 +1,61 @@
+/*** Remove all instances of... ***/
+
+s*(style|STYLE|color|COLOR|vspace|VSPACE|hspace|HSPACE|font|FONT|bgcolor|BGCOLOR|text|TEXT|link|LINK|vlink|VLINK|alink|ALINK|size|SIZE|face|FACE|valign|VALIGN|align|ALIGN|marquee|MARQUEE|bordercolorlight|bordercolordark)="[^"]+"s*
+
+
+/*** Attributes ***/
+
+//Remove attributes from elements
+ name="[^"]+" 
+ id="[^"]+"
+ style="[^"]+"
+ class="[^"]+"
+// ..or in one go..
+ name="[^"]+"| id="[^"]+"| style="[^"]+"| class="[^"]+"
+
+
+/*** Complete elements ***/
+
+// Remove images
+<img[^>]*[>]
+
+// Remove links (first part) or use to Replace with <a href="#">
+<a href="[^>]*[>]
+
+// Remove scripts
+<script[^>]*[>][^>]*[>]
+
+// Remove tables
+<table[^>]*[>]|<td[^>]*[>]|<tr[^>]*[>]|<tbody[^>]*[>]|</table>|</td>|</tr>|</tbody>
+
+// Remove 'b' tag
+<b>|<b [^>]*[>]|</b>
+
+// Remove 'i' tag
+<i>|<i [^>]*[>]|</i>
+
+// Remove 'td' elements
+<td[^>]*[>]
+
+// Remove 'tr' elements
+<tr[^>]*[>]
+
+
+/*** Find duplicate words in content ***/
+
+// For example "the the"
+b(w+)b 1
+
+
+/*** Common or Old Attributes ***/
+
+swidth+="[^"]*["]|onunload+="[^"]*["]|border+="[^"]*["]|onclick+="[^"]*["]|sheight+="[^"]*["]|sborder+="[^"]*["]|scellspacing+="[^"]*["]|scellpadding+="[^"]*["]|salign+="[^"]*["]|svalign+="[^"]*["]|ssstyle+="[^"]*["]|slink+="[^"]*["]|sbgcolor+="[^"]*["]|svlink+="[^"]*["]|salink+="[^"]*["]|stopmargin+="[^"]*["]|sleftmargin+="[^"]*["]srightmargin+="[^"]*["]smarginheight+="[^"]*["]smarginwidth+="[^"]*["]scolspan+="[^"]*["]srowspan+="[^"]*["]
+
+
+/*** Sublime : remove space after selector ***/
+
+//Find what:
+:([a-zA-z0-9#])
+
+//Replace with:
+: $1

@@ -1,0 +1,30 @@
+<!-- Lists images as small swatches for each colour entered. Optional to assign to different products based on the title contents. -->
+
+<!-- product.liquid -->
+
+<div id="swatches" class="swatches">
+    {% assign colorlist = ',' %}
+    {% assign color = " %}
+    {% for variant in product.variants %}
+        {% if product.options[0] == 'Color' %}
+            {% capture color %},{{variant.option1}},{% endcapture %}
+        {% elsif product.options[1] == 'Color' %}
+            {% capture color %},{{variant.option2}},{% endcapture %}
+        {% elsif product.options[2] == 'Color' %}
+            {% capture color %},{{variant.option3}},{% endcapture %}
+        {% endif %}
+        
+        {% if colorlist contains color %}{% else %}
+            {% if product.title contains 'Mens' %}
+                <img src="mens-{{ color | downcase | replace: ',' | replace: ' ', '-' | append: '.png' | asset_url }}" title="{{ color | replace: ',' }}" alt="{{ color | replace: ',' }}" height="25" width="25" style="margin-right:5px;">
+            {% elsif product.title contains 'Wom' %}
+                <img src="womens-{{ color | downcase | replace: ',' | replace: ' ', '-' | append: '.png' | asset_url }}" title="{{ color | replace: ',' }}" alt="{{ color | replace: ',' }}" height="25" width="25" style="margin-right:5px;">
+            {% else %}
+                <img src="bags-{{ color | downcase | replace: ',' | replace: ' ', '-' | append: '.png' | asset_url }}" title="{{ color | replace: ',' }}" alt="{{ color | replace: ',' }}" height="25" width="25" style="margin-right:5px;">
+            {% endif %}
+
+            {% capture tempList %}{{colorlist}}{{color | replace: ','}},{% endcapture %}
+            {% assign colorlist = tempList %}
+        {% endif %}
+    {% endfor %}
+</div>

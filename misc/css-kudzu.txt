@@ -1,0 +1,20 @@
+* Object-oriented CSS - the way forward?
+* 1.9mb Facebook CSS, went on a diet, reduced response time by 1/2 within 6 months
+* Dont match CSS granularity to PHP objects
+* A good start is headings - creating a library for the site, then picking those elements to generate a page
+* Dust-me selectors? Track over time
+* An element needs to be predictable, i.e. dont use...
+    #foo h3 {}
+    #bar h3 {}
+  There are only 6 headings and only so many font-sizes you will use
+* Specificity is killing the cascade
+  - use hacks sparingly, dont use .ie, use _zoom etc
+  - avoid styling ids - too specific + better for Javascript
+  - avoid !important except on leaf nodes - very end and wont effect cascade
+  - definitely style classes without elements e.g.
+    .error { ... most of the code here ... }
+    div.error { }
+    p.error { exceptions only }
+    em.error { exceptions only }
+* Duplication - CSS on steriods - Grep?
+  - too many floats = you need grids!

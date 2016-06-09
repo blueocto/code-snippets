@@ -1,0 +1,42 @@
+// Footer
+
+<p>*|LIST:DESCRIPTION|* <br />
+
+<br />
+
+<a href="*|UNSUB|*">Unsubscribe</a> *|EMAIL|* from this list.<br />
+
+<br />
+
+Our mailing address is:<br />
+
+*|HTML:LIST_ADDRESS_HTML|*<br />
+
+<br />
+
+Copyright &copy; *|CURRENT_YEAR|* *|LIST:COMPANY|* All rights reserved.<br />
+
+<br />
+
+<a href="*|FORWARD|*">Forward</a> this email to a friend<br />
+
+<a href="*|UPDATE_PROFILE|*">Update your profile</a></p>
+
+
+// Headings
+<h1 mc:edit="header"></h1>
+
+// Editable areas
+<td mc:edit="main">
+
+// Images
+<img mc:edit="postcard" style="max-width:600px;" />
+
+// Repeating content area
+<div class="article" mc:repeatable>
+  <h3 mc:edit="article_title">Title</h3>
+  <p mc:edit="article_content">Content</p>
+</div>
+
+// Hideable content area
+<div mc:edit="content" mc:hideable></div>

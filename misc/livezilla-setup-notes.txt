@@ -1,0 +1,12 @@
+- Download the file, double-click to install
+- Next on first screen. Tick for terms, Next.
+- Choose app folder, Next.
+- Ready to update, Next, status bar.
+- Complete, tick to Run, Finish.
+
+- LiveZilla Client and LiveZilla Server Admin - double-click the Admin icon, choose first bullet "Create New LiveZilla Server".
+- Enter Admin contact details and support, tick "Respect Browsers", "Do Not Track" header
+- Select FTP Upload, enter details, it will start to upload the files, do the tests, click Next.
+- Enter database details, Create Tables, OK, Validate Database, Save, Finish.
+
+- Open Client, use the support login you just entered, to login.

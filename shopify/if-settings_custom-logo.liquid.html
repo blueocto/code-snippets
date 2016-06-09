@@ -1,0 +1,33 @@
+<!-- theme.liquid -->
+
+{% if settings.use_logo %}
+{{ 'logo.png' | asset_url | img_tag: shop.name }}
+{% else %}
+<span class="no-logo">{{ shop.name }}</span>
+{% endif %}
+</a>
+
+<!-- settings.html -->
+
+<fieldset>
+    <legend>Header</legend>
+    <h3>Logos</h3>
+    <table>
+        <tr>
+            <td><label for="use_logo">Use custom logo? <br /><small>Recommended 400px by 172px PNG</small></label></td>
+            <td><input type="checkbox" id="use_logo" name="use_logo" /></td>
+        </tr>
+        <tr>
+            <td><label for="logo_image">Upload custom logo</label></td>
+            <td><input type="file" name="logo.png" id="logo_image" /></td>
+        </tr>
+        <tr>
+            <td><label for="use_logo_checkout">Use custom logo on checkout? <br /><small>Recommended 400px by 172px PNG</small></label></td>
+            <td><input type="checkbox" id="use_logo_checkout" name="use_logo_checkout" /></td>
+        </tr>
+        <tr>
+            <td><label for="logo_image_checkout">Upload custom logo on checkout</label></td>
+            <td><input type="file" name="logo_checkout.png" id="logo_image_checkout" /></td>
+        </tr>
+    </table>
+</fieldset>

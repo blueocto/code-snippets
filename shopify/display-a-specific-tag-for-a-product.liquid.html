@@ -1,0 +1,11 @@
+<!-- Anywhere in product loop -->
+
+// in your product, your keyword would be "Location - London"
+
+{% for tag in product.tags %}
+// If tag contains specific keyword
+{% if tag contains 'Location' %}
+// If it does, display it but remove the first part
+<p class="location">{{ tag | remove: 'Location -' }}</p>
+{% endif %}
+{% endfor %}

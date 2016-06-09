@@ -1,0 +1,20 @@
+<!-- theme.liquid -->
+
+{% if settings.tagline == blank %}
+Enter a tagline for your shop using theme settings
+{% else %}
+{{ settings.tagline }}
+{% endif %}
+
+<!-- settings.html -->
+
+<fieldset>
+    <legend>Header</legend>
+    <h3>Tagline</h3>
+    <table>
+        <tr>
+            <td><label for="tagline">Store tagline <br /><small>The tagline is displayed to the right of the logo in the header.</small></label></td>
+            <td><input type="text" name="tagline" id="tagline" class="long" /></td>
+        </tr>
+    </table>
+</fieldset>

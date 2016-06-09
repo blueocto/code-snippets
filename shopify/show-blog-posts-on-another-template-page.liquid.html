@@ -1,0 +1,36 @@
+<!-- an example -->
+
+{% for article in blogs.designers.articles  %}
+// For all blog posts (articles) in the Blog named 'designers'
+
+{% if article.title == product.vendor %}
+// If the article title matches a product vendor name
+                
+<div class="bio-desc">
+                
+<h3>{{ article.title }}</h3>
+                
+{% if article.tags.size > 0 %}
+<div class="content-wrap">
+{% for tag in article.tags %}
+<p class="location">{{ tag }}</p>
+{% endfor %}
+</div>
+{% endif %}
+                               
+<div class="content-wrap middle">
+<p>{{ article.content | strip_html }}</p>
+</div>
+                
+<p class="links"><a href="{{ article.url }}">More Designs by {{ article.title }}</a></p>
+<div class="clear"></div>
+{% if article.tags.size > 0 %}
+{% for tag in article.tags %}
+<p class="links"><a href="{{ blog.url }}/blogs/designers/{{ tag | handle }}">More about {{ tag }}</a></p>
+{% endfor %}
+{% endif %}
+                
+</div>
+
+{% endif %}
+{% endfor %}

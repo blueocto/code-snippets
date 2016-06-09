@@ -1,0 +1,50 @@
+<!-- Use shopify default, or MailChimp -->
+
+<!-- theme.liquid -->
+
+<div class="">
+{% if settings.mailchimp_form_action != blank %}
+    <div id="mailing-list">
+        <h2>
+            {% if settings.mailing_list == blank %}
+            Mailing List
+            {% else %}
+            {{ settings.mailing_list }}
+            {% endif %}
+        </h2>
+        {% if settings.mailchimp_form_action.size > 0 %}
+        <form action="{{ settings.mailchimp_form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+            <label>Your Email Address</label>
+            <input type="email" placeholder="you@email.com" name="EMAIL" id="email-input" />
+            <input type="submit" value="Sign Up" id="email-submit" />
+        </form>
+        {% else %}
+        <form id="email-alerts-footer" class="mailing-list" action="/contact" method="post">
+            <input type="hidden" value="customer" name="form_type">  
+            <span class="success"><em>Thank you for signing up!</em></span>
+            <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,mailing-list" />
+            <input type="hidden" id="mailinglist-first-name" name="contact[first_name]" value="Subscriber" />
+            <input type="hidden" id="mailinglist-last-name" name="contact[last_name]" value="Mailing List" />
+            <label>Your Email Address</label>
+            <input type="email" placeholder="you@email.com" name="contact[email]" id="email-input" class="required email" />
+            <input type="submit" value="Sign Up" class="button secondary" name="subscribe" id="email-submit" />
+        </form>
+        {% endif %}
+    </div>
+{% else %}
+{% endif %}
+</div>
+
+<!-- settings.html -->
+
+<fieldset>
+    <legend>Footer</legend>
+    <h3>Mailing List</h3>
+    <p><small>You can use Mailchimp or Shopify to handle Email Alerts sign ups. By default, the theme uses Shopify (whenever a user signs up a tagged customer account is created). If you want to use Mailchimp instead, enter your Mailchimp Form Action URL below:</small></p>
+    <table>
+        <tr>
+            <td><label for="mailchimp_form_action">MailChimp form action URL <a target="_blank" href="http://support.shopify.com/customer/portal/articles/640278">( ? )</a></label></td>
+            <td><input type="text" id="mailchimp_form_action" name="mailchimp_form_action" class="long" /></td>
+        </tr>
+    </table>
+</fieldset>

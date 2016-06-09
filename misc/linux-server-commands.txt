@@ -1,0 +1,19 @@
+// to remove a directory completely, including contents
+
+$ rm -rf letters/
+
+
+// to create a new folder
+
+cd /path_to_your_folder
+mkdir foldername
+chmod -R 770 foldername
+
+
+// to enter / leave directory
+
+cd foldername
+//to enter
+
+cd ..
+//to leave

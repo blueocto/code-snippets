@@ -1,0 +1,11 @@
+<!-- Output an unordered list of the latest articles from the blog called "news" -->
+
+<!-- BLOG Display a list of your 5 most recent blog posts -->
+<div id="frontpage-posts">
+    <h3>Recent posts from the blog</h3>
+    <ul id="blog-list">
+        {% for article in blogs.news.articles limit: 5 %}
+        <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

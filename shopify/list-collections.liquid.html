@@ -1,0 +1,5 @@
+{% if collections.size > 0 %}
+{% for collection in collections %}
+<a href="{{ collection.url  }}">{{ collection.title }}</a>
+{% endfor %}
+{% endif %}

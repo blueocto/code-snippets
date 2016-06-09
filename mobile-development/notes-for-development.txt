@@ -1,0 +1,5 @@
+// Build with the idea that no-one has Javascript enabled, so that you can use the site without. It's a bonus if you can.
+// Submit input buttons, with background images and no text = use text indent + overflow hidden, instead of padding.
+// To use the IE box model, where padding doesn't effect width use
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}

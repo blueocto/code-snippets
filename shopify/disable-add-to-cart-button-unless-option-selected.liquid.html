@@ -1,0 +1,50 @@
+<!-- Create a list of radio buttons, that look like chunky buttons - you can't Add to Cart, unless you select one. -->
+
+<!-- product.liquid -->
+
+//Paste where you want the options to appear
+
+{% if product.variants.size > 0 %}
+    <div class="variants">
+        <ul class="size_radios clearfix">
+            {% for variant in product.variants %}
+                <li>
+                    <input type="radio" class="check" name="id" value="{{variant.id}}" id="radio_{{variant.id}}">
+                    <label {%if forloop.first%} checked="checked" {%endif%} for="radio_{{variant.id}}">
+                        <span class="ir">{{ variant.title }}</span>
+                    </label>
+                </li>
+            {% endfor %}
+        </ul>
+    </div><!-- //variants -->
+{% else %}
+{% assign variant = product.variants.first %}
+    <input type="hidden" name="id" value="{{ variant.id }}" />
+{% endif %}
+
+
+<!-- Beneath the above code -->
+
+//Add to Cart button modded
+{% if product.available %}
+    <input id="add" class="btn cart_btn" disabled="disabled" type="submit" id="add" value="Add to Cart" />
+{% else %}
+{% endif %}
+
+<script type="text/javascript">
+    $("#add").css({backgroundColor: '#CCC', cursor: 'help'}).attr("value","Select a choice above");
+
+    $('select').click(function() {
+        $("#add").removeAttr("disabled").css({backgroundColor: '#797979', cursor: 'pointer'}).attr("value","Add to Cart");
+    });
+</script>
+
+
+<!-- Styles -->
+
+.size_radios { list-style: none;}
+   .size_radios li { position: relative; float: left; display: block; margin: 0 15px 15px 0;}
+   .size_radios li input { position: absolute; top: 10px; left: 10px; margin: 0; width: 20px; height: 20px;}
+   .size_radios li label { position: relative; display: block; padding: 15px 17px; text-align: center; font-size: 17px; line-height: 17px; color: #00CCCB; cursor: pointer; z-index: 10; background-color: #FFF; border-radius: 5px;}
+
+.cart_btn:hover { background-color: #CCC;}

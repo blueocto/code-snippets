@@ -1,0 +1,12 @@
+/*** 
+* Must specify base font-size on body element
+
+* To calculate line-height,use the element font-size as the base font e.g.
+    H1 is 25px and line-height is 29px
+    so use, 25px as base font = 1.222em
+
+* target / context = result
+  child  / parent  = result
+  11px   / 13px    = 0.846
+
+***/

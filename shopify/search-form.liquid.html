@@ -1,0 +1,19 @@
+<form action="/search" method="get" class="search-form" role="search">
+    <input type="hidden" name="type" value="product" />
+    <input type="submit" id="search-submit" class="icon {% if settings.light_search_icon %}light{% endif %}" />
+    <input class="search" placeholder="Search" name="q" type="text" id="search-field"  />
+</form>
+
+
+<form action="/search" method="get" class="search-form" role="search">
+<input name="q" type="text" id="search-field" placeholder="Search store..." class="hint" />
+<input type="submit" id="search-submit" value="Search" />
+</form>
+
+
+<form action="/search" method="get" class="search-form" role="search">
+<p>
+<input type="text" name="q" value="{{ search.terms | escape }}" />
+<input type="submit" value="Search store..." />
+</p>
+</form>

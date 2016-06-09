@@ -1,0 +1,27 @@
+<!-- In the your Liquid -->
+
+<ul>
+{% for tag in collection.all_tags %}
+{% if tag contains 'Style' %}
+<li>{{ tag | link_to_tag: tag | remove: 'Style - ' }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
+
+<!-- In your product tag -->
+
+// "Style - Day Dresses"
+
+// Output = Day Dresses
+
+<!-- ...or all tags -->
+
+<ul>
+{% for tag in collection.all_tags %}
+{% if current_tags contains tag %}
+<li class="active">{{ tag | link_to_remove_tag: tag }}</li>
+{% else %}
+<li>{{ tag | link_to_add_tag: tag }}</li>
+{% endif %}
+{% endfor %}
+</ul>

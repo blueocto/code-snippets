@@ -1,0 +1,39 @@
+<!-- An example of code -->
+
+{% if product-grid-item == '' %}{% assign product-grid-item = 'three-per-row' %}{% endif %}
+
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+{% assign on_sale = true %}
+{% endif %}
+
+<!-- START PRODUCT -->
+<div class="four columns alpha">
+
+    <div class="product {{ product-grid-item }}{% unless product.available %} sold-out{% endunless %}{% if on_sale %} on-sale{% endif %}{% if product-grid-item == 'four-per-row' %}{% cycle 'last': '', '', '', ' last-in-row' %}{% elsif product-grid-item == 'three-per-row' %}{% cycle 'last': '', '', ' last-in-row' %}{% endif %}">
+        <a href="{{ product.url | within: collection }}">
+
+            {% if on_sale %}
+            <div class="sticker">Sale</div>
+            {% endif %}
+
+            <img src="{{ product.featured_image.src | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}" />
+
+            <h4>
+                {{ product.title }} 
+                <span>{% if product.price_varies %}From{% endif %} {{ product.price | money }} <del class="compare-at-price">{{ product.compare_at_price | money }}</del></span>
+            </h4>
+            <p>{{ product.vendor }}</p>
+            <div class="clear"></div>
+            <p class="location">London</p>
+        </a>
+    </div><!-- //product -->
+
+</div>
+<!-- END PRODUCT -->
+
+{% if product-grid-item == 'four-per-row' %}
+{% cycle 'clear': '', '', '', '<div style="clear:both"></div>' %}
+{% elsif product-grid-item == 'three-per-row' %}
+{% cycle 'clear': '', '', '<div style="clear:both"></div>' %}
+{% endif %}

@@ -1,0 +1,15 @@
+* Utilise a robots.txt file to let search engines know what files + folders should not be indexed.
+* Add a XML sitemap for search engines, add a User friendly version to the front-end.
+* Use a 404 page with useful links instead of relying on the Back button.
+* Make sure broken pages + web addresses actually generate a 404, instead of a 200 response.
+* Create unique HTML titles, meta descriptions, keywords and page headings.
+* Cross-link within the site to relevant pages.
+* Avoid excessive Flash, AJAX and other technologies that search engines struggle to crawl.
+
+Page Titles
+* Best to describe the page then put the company name e.g "deleted articles with freaky titles" > Isimo Ltd.
+* Anything more than 10 characters is a waste.
+* Treat them like blog titles.
+* Dont repeat words like toaster, toaster oven...
+* Each page meta description needs to be relevant to that individual page.
+* Be specific if its about toasters dont call it kitchen appliances.

@@ -1,0 +1,35 @@
+*** Desktop ***
+
+Apple Mail 4 OSX 10.6
+Apple Mail 5 OSX 10.7
+Apple Mail 6 OSX 10.8
+
+Outlook 2007 Win XP
+Outlook 2010 Win Vista
+Outlook 2011 OSX 10.7
+Outlook 2013 Win 7
+
+Thunderbird Latest Win 7
+
+*** Mobile ***
+
+Blackberry 4 OS w/plain text
+
+iPad iOS 6
+
+iPhone 3Gs iOS 5
+iPhone 4S iOS 6
+iPhone 5 iOS 6
+
+Symbian s60
+
+Windows Phone 7
+
+*** Web Based ***
+
+Firefox, Chrome, Explorer...
+AOL Mail
+Gmail
+Hotmail
+Outlook.com
+Yahoo! Mail
