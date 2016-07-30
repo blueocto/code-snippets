@@ -1,0 +1,16 @@
+<!--
+	Output list of variants for a product, add a class for out of stock, so you can style it differently
+-->
+
+<a class="variant_preview" href="{{ item.url | within: collection }}" title="{{ item.title }}">
+	<p class="size_variant_title">Sizes Available</p>
+	<!-- loop through Size variants -->
+	{% if product.options.size == 1 %}
+		{% for variant in product.variants %}
+			<p class="size_variant">
+				<span{% unless variant.available %} class="oos"{% endunless %}>{{ variant.title }}</span>
+			</p>
+		{% endfor %}
+	{% endif %}
+	<!-- end loop -->
+</a>
