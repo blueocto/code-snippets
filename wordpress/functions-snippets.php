@@ -142,11 +142,6 @@ function remove_links_menu() {
 	remove_menu_page('options-general.php'); // Settings
 }
 
-//Remove the Editor link from the Appearance menu
-function remove_editor_menu() {
-	remove_action('admin_menu', '_add_themes_utility_last', 101);
-}
-add_action('_admin_menu', 'remove_editor_menu', 1);
 
 //Remove items from the Post page
 add_action( 'admin_menu', 'remove_meta_boxes' );
