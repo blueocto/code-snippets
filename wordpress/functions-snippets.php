@@ -190,17 +190,17 @@ function change_post_menu_label() {
 }
 function change_post_object_label() {
 	global $wp_post_types;
-	$labels = &amp;$wp_post_types['post']-&gt;labels;
-	$labels-&gt;name = 'Products';
-	$labels-&gt;singular_name = 'Product';
-	$labels-&gt;add_new = 'Add Product';
-	$labels-&gt;add_new_item = 'Add Product';
-	$labels-&gt;edit_item = 'Edit Product';
-	$labels-&gt;new_item = 'Products';
-	$labels-&gt;view_item = 'View Products';
-	$labels-&gt;search_items = 'Search Products';
-	$labels-&gt;not_found = 'No Products found';
-	$labels-&gt;not_found_in_trash = 'No Products found in Trash';
+	$labels = &$wp_post_types['post']->labels;
+	$labels->name = 'Products';
+	$labels->singular_name = 'Product';
+	$labels->add_new = 'Add Product';
+	$labels->add_new_item = 'Add Product';
+	$labels->edit_item = 'Edit Product';
+	$labels->new_item = 'Products';
+	$labels->view_item = 'View Products';
+	$labels->search_items = 'Search Products';
+	$labels->not_found = 'No Products found';
+	$labels->not_found_in_trash = 'No Products found in Trash';
 }
 add_action( 'init', 'change_post_object_label' );
 add_action( 'admin_menu', 'change_post_menu_label' );
