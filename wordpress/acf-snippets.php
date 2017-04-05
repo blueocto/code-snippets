@@ -5,9 +5,11 @@
 <!-- If, else -->
 
 <?php 
-    if(get_field('field_name')) { 
+    if (get_field('field_name')) { 
         echo '<p>' . get_field('field_name') . '</p>';
-        }
+    } else {
+        //do nothing
+    }
 ?>
 
 
@@ -94,3 +96,63 @@
 ?>
 
 <img src="<?php echo $image_attributes[0]; ?>" alt="<?php echo $alt; ?>" />
+
+
+<!-- simple TRUE/FALSE with if / else statement -->
+<?php if (get_field('section_a')) { ?>
+    <p>enabled</p>
+<?php } else { ?>
+    <p>not enabled</p>
+<?php } ?>
+
+
+<!-- Is this article, a featured article? TRUE/FALSE -->
+<?php 
+    $args = array( 
+        'post_type' => 'advice', 
+        'posts_per_page' => 1, 
+        'meta_query' => array(
+            array(
+                'key' => 'featured_article',
+                'compare' => '=',
+                'value' => '1' // the Yes option is selected, to be featured
+            )
+        )
+    ); 
+    $loop = new WP_Query( $args ); 
+    while ( $loop->have_posts() ) : $loop->the_post(); 
+?>
+<?php get_template_part( 'parts/loop', 'advice-featured' ); ?>
+<?php endwhile; ?>
+
+<!-- then let's load a bunch of posts, excluding the featured article (as once its been set, then unset it still comes back as TRUE!) -->
+<?php 
+    // to ensure we capture those that are not set, and those that are now unset
+    $args = array( 
+        'post_type' => 'advice', 
+        'posts_per_page' => 3, 
+        'meta_query' => array(
+            array(
+                'relation' => 'OR',
+                array(
+                    'key'     => 'featured_article',
+                    'compare' => '=', 
+                    'value'   => '0'
+                ),
+                array(
+                    'key'     => 'featured_article',
+                    'compare' => 'NOT EXISTS'
+                )
+            )
+        )
+    ); 
+    $loop = new WP_Query( $args ); 
+    while ( $loop->have_posts() ) : $loop->the_post(); 
+?>
+
+<?php get_template_part( 'parts/loop', 'home' ); ?>
+
+<?php endwhile; ?>
+
+
+
