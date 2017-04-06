@@ -75,11 +75,23 @@
 <?php $count_document_downloads = count(get_sub_field('gallery_images')); echo $count_document_downloads; ?>
 
 
-<!-- SImple text fields -->
+<!-- Simple text fields -->
 
 <?php if( get_field( 'text_field' ) ): ?>
 	<?php the_field('text_field'); ?>
 <?php endif; ?>
+
+
+
+<!-- custom image as background on DIV - set as Image OBJECT -->
+<?php $image = get_field('image'); if( !empty($image) ): ?>
+<div style="<?php echo $image['url']; ?>">
+<?php endif; ?>
+
+<!-- or -->
+
+<section class="welcome" <?php $image = get_field('image'); if( !empty($image) ): ?> style="background-image: url(<?php echo $image['url']; ?>)"<?php endif; ?>>
+
 
 
 <!-- Add image with alt + title data 
