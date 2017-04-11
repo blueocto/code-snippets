@@ -1,20 +1,27 @@
 <?php
 
-// Disable the auto-save feature completely
+/* ==========================================================================
+	Disable the auto-save feature completely
+========================================================================== */
 function no_autosave() {
 	wp_deregister_script('autosave');
 }
 add_action( 'wp_print_scripts', 'no_autosave' );
 
 
-//function to call and print shortened post title
+/* ==========================================================================
+	function to call and print shortened post title
+========================================================================== */
 function the_title_shorten($len,$rep='...') {
 	$title = the_title('','',false);
 	$shortened_title = textLimit($title, $len, $rep);
 	print $shortened_title;
 }
 
-//shorten without cutting full words
+
+/* ==========================================================================
+	shorten without cutting full words
+========================================================================== */
 function textLimit($string, $length, $replacer) {
 	if(strlen($string) > $length)
 	return (preg_match('/^(.*)W.*$/', substr($string, 0, $length+1), $matches) ? $matches[1] : substr($string, 0, $length)) . $replacer;
@@ -22,7 +29,9 @@ function textLimit($string, $length, $replacer) {
 }
 
 
-//Custom footer links in Admin
+/* ==========================================================================
+	Custom footer links in Admin
+========================================================================== */
 function modify_footer_admin () {
 	echo 'Created by <a title="Web Development Newcastle" href="http://www.caroline-murphy.co.uk">Caroline Murphy</a>.';
 	echo 'Powered by<a href="http://WordPress.org">WordPress</a>.';
@@ -30,10 +39,15 @@ function modify_footer_admin () {
 add_filter('admin_footer_text', 'modify_footer_admin');
 
 
-//Hide the upgrade notice in Admin
+/* ==========================================================================
+	Hide the upgrade notice in Admin
+========================================================================== */
 add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
 
-//Hide plugin updates notification in the dashboard
+
+/* ==========================================================================
+	Hide plugin updates notification in the dashboard
+========================================================================== */
 function hide_plugin_update_indicator(){
 	global $menu,$submenu;
 	$menu[65][0] = 'Plugins';
@@ -42,7 +56,9 @@ function hide_plugin_update_indicator(){
 add_action('admin_menu', 'hide_plugin_update_indicator');
 
 
-//Hide menu items to clean up Admin
+/* ==========================================================================
+	Hide menu items to clean up Admin
+========================================================================== */
 function remove_menu_items() {
 	global $menu;
 	$restricted = array(__('Links'), __('Comments'), __('Media'), __('Plugins'), __('Tools'), __('Users'));
@@ -56,31 +72,44 @@ function remove_menu_items() {
 add_action('admin_menu', 'remove_menu_items');
 
 
-//Hide the Editor option in Admin
+/* ==========================================================================
+	Hide the Editor option in Admin
+========================================================================== */
 function remove_editor_menu() {
 	remove_action('admin_menu', '_add_themes_utility_last', 101);
 }
 add_action('_admin_menu', 'remove_editor_menu', 1);
 
 
-//Custom excerpt length on posts
+/* ==========================================================================
+	Custom excerpt length on posts
+========================================================================== */
 function custom_excerpt_length($length) {
 	return 50;
 }
 add_filter('excerpt_length', 'custom_excerpt_length');
 
-//Returns a "Continue Reading" link for excerpts
+
+/* ==========================================================================
+	Returns a "Continue Reading" link for excerpts
+========================================================================== */
 function twentyeleven_continue_reading_link() {
 	return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyeleven' ) . '</a>';
 }
 
-//Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and twentyeleven_continue_reading_link() [above].
+
+/* ==========================================================================
+	Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and twentyeleven_continue_reading_link() [above].
+========================================================================== */
 function twentyeleven_auto_excerpt_more( $more ) {
 	return ' &hellip;' . twentyeleven_continue_reading_link();
 }
 add_filter( 'excerpt_more', 'twentyeleven_auto_excerpt_more' );
 
-//Adds a pretty "Continue Reading" link to custom post excerpts.
+
+/* ==========================================================================
+	Adds a pretty "Continue Reading" link to custom post excerpts.
+========================================================================== */
 function twentyeleven_custom_excerpt_more( $output ) {
 	if ( has_excerpt() && ! is_attachment() ) {
 		$output .= twentyeleven_continue_reading_link();
@@ -90,20 +119,28 @@ function twentyeleven_custom_excerpt_more( $output ) {
 add_filter( 'get_the_excerpt', 'twentyeleven_custom_excerpt_more' );
 
 
-//Set the $content_width for things such as video embeds.
+/* ==========================================================================
+	Set the $content_width for things such as video embeds.
+========================================================================== */
 if ( !isset( $content_width ) )
 	$content_width = 600;
 
 
-//Add default posts and comments RSS feed links to <head>.
+/* ==========================================================================
+	Add default posts and comments RSS feed links to <head>.
+========================================================================== */
 add_theme_support( 'automatic-feed-links' );
 
 
-//Add support for a variety of post formats
+/* ==========================================================================
+	Add support for a variety of post formats
+========================================================================== */
 add_theme_support( 'post-formats', array( 'aside', 'link', 'gallery', 'status', 'quote', 'image' ) );
 
 
-//Get the slug of the page
+/* ==========================================================================
+	Get the slug of the page
+========================================================================== */
 function the_slug() {
 	$post_data = get_post($post->ID, ARRAY_A);
 	$slug = $post_data['post_name'];
@@ -111,9 +148,10 @@ function the_slug() {
 }
 
 
-//Customise and simplify the administration area for this theme
-
-//Remove Dashboard widgets
+/* ==========================================================================
+	Customise and simplify the administration area for this theme
+	Remove Dashboard widgets
+========================================================================== */
 function remove_dashboard_widgets(){
 	global$wp_meta_boxes;
 	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
@@ -126,7 +164,10 @@ function remove_dashboard_widgets(){
 }
 add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
 
-//Change the Admin menu
+
+/* ==========================================================================
+	Change the Admin menu
+========================================================================== */
 add_action( 'admin_menu', 'remove_links_menu' );
 function remove_links_menu() {
 	remove_menu_page('index.php'); // Dashboard
@@ -143,7 +184,9 @@ function remove_links_menu() {
 }
 
 
-//Remove items from the Post page
+/* ==========================================================================
+	Remove items from the Post page
+========================================================================== */
 add_action( 'admin_menu', 'remove_meta_boxes' );
 function remove_meta_boxes() {
 	remove_meta_box( 'submitdiv', 'post', 'normal' ); // Publish meta box
@@ -163,14 +206,19 @@ function remove_meta_boxes() {
 }
 
 
-//Remove comments number from column in Post / Pages view
+/* ==========================================================================
+	Remove comments number from column in Post / Pages view
+========================================================================== */
 function custom_post_columns($defaults) {
 	unset($defaults['comments']);
 	return $defaults;
 }
 add_filter('manage_posts_columns', 'custom_post_columns');
 
-//Remove comments option from the top drop-down menu, top left
+
+/* ==========================================================================
+	Remove comments option from the top drop-down menu, top left
+========================================================================== */
 function custom_favorite_actions($actions) {
 	unset($actions['edit-comments.php']);
 	return $actions;
@@ -178,7 +226,9 @@ function custom_favorite_actions($actions) {
 add_filter('favorite_actions', 'custom_favorite_actions');
 
 
-//Rename 'Posts' to 'News'
+/* ==========================================================================
+	Rename 'Posts' to 'News'
+========================================================================== */
 function change_post_menu_label() {
 	global $menu;
 	global $submenu;
@@ -206,7 +256,9 @@ add_action( 'init', 'change_post_object_label' );
 add_action( 'admin_menu', 'change_post_menu_label' );
 
 
-/* remove query strings from static resources */
+/* ==========================================================================
+	remove query strings from static resources
+========================================================================== */
 function _remove_script_version( $src ){
 	$parts = explode( '?', $src );
 	return $parts[0];
@@ -215,11 +267,15 @@ add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
 add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
 
 
-//Remove wordpress version from header
+/* ==========================================================================
+	Remove wordpress version from header
+========================================================================== */
 remove_action('wp_head', 'wp_generator');
 
 
-// Remove Wordpress bumpf from HEAD tags
+/* ==========================================================================
+	Remove Wordpress bumpf from HEAD tags
+========================================================================== */
 function roots_head_cleanup() {
 	remove_action('wp_head', 'feed_links', 2);
 	remove_action('wp_head', 'feed_links_extra', 3);
