@@ -30,49 +30,6 @@ function textLimit($string, $length, $replacer) {
 
 
 /* ==========================================================================
-	Custom footer links in Admin
-========================================================================== */
-function modify_footer_admin () {
-	echo 'Created by <a title="Web Development Newcastle" href="http://www.caroline-murphy.co.uk">Caroline Murphy</a>.';
-	echo 'Powered by<a href="http://WordPress.org">WordPress</a>.';
-}
-add_filter('admin_footer_text', 'modify_footer_admin');
-
-
-/* ==========================================================================
-	Hide the upgrade notice in Admin
-========================================================================== */
-add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
-
-
-/* ==========================================================================
-	Hide plugin updates notification in the dashboard
-========================================================================== */
-function hide_plugin_update_indicator(){
-	global $menu,$submenu;
-	$menu[65][0] = 'Plugins';
-	$submenu['index.php'][10][0] = 'Updates';
-}
-add_action('admin_menu', 'hide_plugin_update_indicator');
-
-
-/* ==========================================================================
-	Hide menu items to clean up Admin
-========================================================================== */
-function remove_menu_items() {
-	global $menu;
-	$restricted = array(__('Links'), __('Comments'), __('Media'), __('Plugins'), __('Tools'), __('Users'));
-	end ($menu);
-	while (prev($menu)){
-		$value = explode(' ',$menu[key($menu)][0]);
-		if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){
-		unset($menu[key($menu)]);}
-		}
-	}
-add_action('admin_menu', 'remove_menu_items');
-
-
-/* ==========================================================================
 	Hide the Editor option in Admin
 ========================================================================== */
 function remove_editor_menu() {

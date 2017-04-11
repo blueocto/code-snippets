@@ -1,7 +1,9 @@
 <?php
 // This file handles the admin area and functions - You can use this file to make changes to the dashboard.
 
-/************* DASHBOARD WIDGETS *****************/
+/* ==========================================================================
+	Dashboard Widgets
+========================================================================== */
 // Disable default dashboard widgets
 function disable_default_dashboard_widgets() {
 	// Remove_meta_box('dashboard_right_now', 'dashboard', 'core');    // Right Now Widget
@@ -59,11 +61,59 @@ add_action('admin_menu', 'disable_default_dashboard_widgets');
 // adding any custom widgets
 add_action('wp_dashboard_setup', 'joints_custom_dashboard_widgets');
 
-/************* CUSTOMIZE ADMIN *******************/
-// Custom Backend Footer
-function joints_custom_admin_footer() {
-	_e('<span id="footer-thankyou">Developed by <a href="#" target="_blank">Your Site Name</a></span>.', 'jointswp');
-}
 
-// adding it to the admin area
-add_filter('admin_footer_text', 'joints_custom_admin_footer');
+/* ==========================================================================
+	Hide menu items to clean up Admin
+========================================================================== */
+function remove_menu_items() {
+	global $menu;
+	$restricted = array(__('Links'), __('Comments'), __('Media'), __('Plugins'), __('Tools'), __('Users'));
+	end ($menu);
+	while (prev($menu)){
+		$value = explode(' ',$menu[key($menu)][0]);
+		if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){
+		unset($menu[key($menu)]);}
+		}
+	}
+add_action('admin_menu', 'remove_menu_items');
+
+
+/* ==========================================================================
+	Hide the Editor option in Admin
+========================================================================== */
+function remove_editor_menu() {
+	remove_action('admin_menu', '_add_themes_utility_last', 101);
+}
+add_action('_admin_menu', 'remove_editor_menu', 1);
+
+
+
+
+/* ==========================================================================
+	Custom footer links in Admin
+========================================================================== */
+function modify_footer_admin () {
+	echo 'Created by <a title="Web Development Newcastle" href="https://www.blueocto.co.uk">Blueocto Ltd</a>.';
+	echo 'Powered by<a href="http://WordPress.org">WordPress</a>.';
+}
+add_filter('admin_footer_text', 'modify_footer_admin');
+
+
+/* ==========================================================================
+	Hide the upgrade notice in Admin - why do this?
+========================================================================== */
+add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
+
+
+/* ==========================================================================
+	Hide plugin updates notification in the dashboard
+========================================================================== */
+function hide_plugin_update_indicator(){
+	global $menu,$submenu;
+	$menu[65][0] = 'Plugins';
+	$submenu['index.php'][10][0] = 'Updates';
+}
+add_action('admin_menu', 'hide_plugin_update_indicator');
+
+
+
