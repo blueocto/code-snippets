@@ -98,3 +98,47 @@ function joints_get_the_author_posts_link() {
 	);
 	return $link;
 }
+
+/* ==========================================================================
+	Remove jQuery Migrate Script from header and Load jQuery from Google API
+	Ref: http://crunchify.com/how-to-disable-auto-embed-script-for-wordpress-4-4-wp-embed-min-js/
+========================================================================== */
+// Remove jQuery Migrate Script from header
+function crunchify_stop_loading_wp_embed_and_jquery() {
+	if (!is_admin()) {
+		wp_deregister_script('wp-embed');
+	}
+}
+// Load jQuery from Google API instead
+function crunchify_stop_loading_wp_embed_and_jquery() {
+	if (!is_admin()) {
+		// We don't need oEmbed
+        wp_deregister_script('wp-embed'); 
+        // Remove WP jQuery and Migrate
+        wp_deregister_script('jquery');
+        // USe Google CDN instead
+        wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', false, '1.12.4');
+        wp_enqueue_script('jquery');
+	}
+}
+add_action('init', 'crunchify_stop_loading_wp_embed_and_jquery');
+add_action('init', 'crunchify_stop_loading_wp_embed_and_jquery');
+// Remove the REST API endpoint.
+remove_action( 'rest_api_init', 'wp_oembed_register_route' );
+ 
+// Turn off oEmbed auto discovery.
+add_filter( 'embed_oembed_discover', '__return_false' );
+ 
+// Don't filter oEmbed results.
+remove_filter( 'oembed_dataparse', 'wp_filter_oembed_result', 10 );
+ 
+// Remove oEmbed discovery links.
+remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+ 
+// Remove oEmbed-specific JavaScript from the front-end and back-end.
+remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+ 
+// Remove all embeds rewrite rules.
+add_filter( 'rewrite_rules_array', 'disable_embeds_rewrites' );
+
+
