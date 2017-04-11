@@ -1,13 +1,5 @@
 <?php
 
-/* ==========================================================================
-	Disable the auto-save feature completely
-========================================================================== */
-function no_autosave() {
-	wp_deregister_script('autosave');
-}
-add_action( 'wp_print_scripts', 'no_autosave' );
-
 
 /* ==========================================================================
 	function to call and print shortened post title
@@ -27,15 +19,6 @@ function textLimit($string, $length, $replacer) {
 	return (preg_match('/^(.*)W.*$/', substr($string, 0, $length+1), $matches) ? $matches[1] : substr($string, 0, $length)) . $replacer;
 	return $string;
 }
-
-
-/* ==========================================================================
-	Hide the Editor option in Admin
-========================================================================== */
-function remove_editor_menu() {
-	remove_action('admin_menu', '_add_themes_utility_last', 101);
-}
-add_action('_admin_menu', 'remove_editor_menu', 1);
 
 
 /* ==========================================================================
@@ -77,25 +60,6 @@ add_filter( 'get_the_excerpt', 'twentyeleven_custom_excerpt_more' );
 
 
 /* ==========================================================================
-	Set the $content_width for things such as video embeds.
-========================================================================== */
-if ( !isset( $content_width ) )
-	$content_width = 600;
-
-
-/* ==========================================================================
-	Add default posts and comments RSS feed links to <head>.
-========================================================================== */
-add_theme_support( 'automatic-feed-links' );
-
-
-/* ==========================================================================
-	Add support for a variety of post formats
-========================================================================== */
-add_theme_support( 'post-formats', array( 'aside', 'link', 'gallery', 'status', 'quote', 'image' ) );
-
-
-/* ==========================================================================
 	Get the slug of the page
 ========================================================================== */
 function the_slug() {
@@ -104,30 +68,5 @@ function the_slug() {
 	return $slug;
 }
 
-
-/* ==========================================================================
-	Remove wordpress version from header
-========================================================================== */
-remove_action('wp_head', 'wp_generator');
-
-
-/* ==========================================================================
-	Remove Wordpress bumpf from HEAD tags
-========================================================================== */
-function roots_head_cleanup() {
-	remove_action('wp_head', 'feed_links', 2);
-	remove_action('wp_head', 'feed_links_extra', 3);
-	remove_action('wp_head', 'rsd_link');
-	remove_action('wp_head', 'wlwmanifest_link');
-	remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
-	remove_action('wp_head', 'wp_generator');
-	remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
-
-	global $wp_widget_factory;
-	remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
-
-	add_filter('use_default_gallery_style', '__return_null');
-}
-add_action('init', 'roots_head_cleanup');
 
 ?>

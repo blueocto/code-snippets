@@ -108,4 +108,15 @@ add_action( 'init', 'change_post_object_label' );
 add_action( 'admin_menu', 'change_post_menu_label' );
 
 
+/* ==========================================================================
+	Disable the auto-save feature completely
+========================================================================== */
+function no_autosave() {
+	wp_deregister_script('autosave');
+}
+add_action( 'wp_print_scripts', 'no_autosave' );
+
+
+
+
 ?>
