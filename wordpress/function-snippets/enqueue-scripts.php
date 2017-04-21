@@ -1,4 +1,33 @@
 <?php
+
+// Defer load
+function defer_scripts($url)
+{
+    if ( strpos( $url, '#deferload') === false )
+        return $url;
+    else if ( is_admin() )
+        return str_replace( '#deferload', '', $url );
+    else
+    return str_replace( '#deferload', '', $url )."' defer='defer"; 
+    }
+add_filter( 'clean_url', 'defer_scripts', 11, 1 );
+
+
+// Remove jQuery Migrate Script from header
+function crunchify_stop_loading_wp_embed_and_jquery() {
+    if (!is_admin()) {
+        // We don't need oEmbed
+        wp_deregister_script('wp-embed'); 
+        // Remove WP jQuery and Migrate
+        wp_deregister_script('jquery');
+        // USe your own jQuery source instead
+        wp_register_script('jquery', get_template_directory_uri() . '/vendor/jquery/jquery-deprecated-sizzle-wrap.min.js', false, '1.11.0');
+        wp_enqueue_script('jquery');
+    }
+}
+add_action('init', 'crunchify_stop_loading_wp_embed_and_jquery');
+
+
 function site_scripts() {
   global $wp_styles; // Call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 
