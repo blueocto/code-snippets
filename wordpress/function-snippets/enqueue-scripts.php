@@ -21,7 +21,8 @@ function crunchify_stop_loading_wp_embed_and_jquery() {
         // Remove WP jQuery and Migrate
         wp_deregister_script('jquery');
         // USe your own jQuery source instead
-        wp_register_script('jquery', get_template_directory_uri() . '/vendor/jquery/jquery-deprecated-sizzle-wrap.min.js', false, '1.11.0');
+        //wp_register_script('jquery', get_template_directory_uri() . '/vendor/jquery/jquery-deprecated-sizzle-wrap.min.js', false, '1.11.0');
+        wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', false, '1.12.4');
         wp_enqueue_script('jquery');
     }
 }
