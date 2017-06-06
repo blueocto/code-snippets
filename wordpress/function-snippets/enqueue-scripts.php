@@ -1,16 +1,56 @@
 <?php
 
 // Defer load
-function defer_scripts($url)
-{
-    if ( strpos( $url, '#deferload') === false )
-        return $url;
-    else if ( is_admin() )
-        return str_replace( '#deferload', '', $url );
-    else
-    return str_replace( '#deferload', '', $url )."' defer='defer"; 
+// function defer_scripts($url)
+// {
+//     if ( strpos( $url, '#deferload') === false )
+//         return $url;
+//     else if ( is_admin() )
+//         return str_replace( '#deferload', '', $url );
+//     else
+//     return str_replace( '#deferload', '', $url )."' defer='defer"; 
+//     }
+// add_filter( 'clean_url', 'defer_scripts', 11, 1 );
+
+
+
+/* Function to defer or asynchronously load scripts not aggregated by Autoptimize
+ref: https://jasonyingling.me/fixing-render-blocking-scripts-third-party-sources-wordpress/ */
+function js_async_attr($tag){
+
+# Do not add defer or async attribute to these scripts
+$scripts_to_exclude = array('jquery.min.js');
+ 
+foreach($scripts_to_exclude as $exclude_script){
+    if(true == strpos($tag, $exclude_script ) )
+    return $tag;    
+}
+
+# Defer or async all remaining scripts not excluded above
+return str_replace( ' src', ' defer="defer" src', $tag );
+}
+add_filter( 'script_loader_tag', 'js_async_attr', 10 );
+
+
+
+/*Function to defer or asynchronously load scripts not aggregated by Autoptimize*/
+function aty_js_async_attr($tag){
+
+    # Add defer or async attribute to these scripts
+    $scripts_to_include = array('js.stripe.com', 'devicepx-jetpack.js');
+
+    foreach($scripts_to_include as $include_script){
+        if(true == strpos($tag, $include_script ))
+        # Async the scripts included above
+        return str_replace( ' src', ' async="async" src', $tag );
     }
-add_filter( 'clean_url', 'defer_scripts', 11, 1 );
+
+    # Return original tag for all scripts not included
+    return $tag;
+
+}
+add_filter( 'script_loader_tag', 'aty_js_async_attr', 10 );
+
 
 
 // Remove jQuery Migrate Script from header
