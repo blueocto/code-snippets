@@ -29,17 +29,28 @@
 ?>
 
 
-<!-- Repeater Field -->
+<!-- Repeater Field : https://www.advancedcustomfields.com/resources/repeater/  -->
 
-<?php if(get_field('create_gallery')): ?>
+<?php
 
-<?php while(has_sub_field('create_gallery')): ?>
+// check if the repeater field has rows of data
+if( have_rows('repeater_field_name') ):
 
-	<?php the_sub_field("gallery_name"); ?>
-   
-<?php endwhile;?>
+    // loop through the rows of data
+    while ( have_rows('repeater_field_name') ) : the_row();
 
-<?php endif; ?>
+        // display a sub field value
+        the_sub_field('sub_field_name');
+
+    endwhile;
+
+else :
+
+    // no rows found
+
+endif;
+
+?>
 
 
 <!-- Repeater : sub fields - If empty... else -->
@@ -51,23 +62,6 @@
         echo "&nbsp;<small>&#91;" . $mysubfield . "&#93;</small>"; 
     }
 ?>
-
-
-<!-- Embed repeater inside of a repeater -->
-
-<?php if(get_field('create_gallery')): ?>
-
-<?php while(has_sub_field('create_gallery')): ?>
-
-	<?php while(has_sub_field('gallery_images')): ?>
-		<?php the_sub_field('gallery_name'); ?>
-	<?php endwhile;?>
-
-	<?php the_sub_field('gallery_name'); ?>
-	
-<?php endwhile;?>
-
-<?php endif; ?>
 
 
 <!-- Count rows in Repeater field -->
