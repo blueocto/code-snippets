@@ -99,6 +99,8 @@ function joints_get_the_author_posts_link() {
 	return $link;
 }
 
+
+
 /* ==========================================================================
 	Remove jQuery Migrate Script from header and Load jQuery from Google API
 	Ref: http://crunchify.com/how-to-disable-auto-embed-script-for-wordpress-4-4-wp-embed-min-js/

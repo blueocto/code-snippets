@@ -52,12 +52,12 @@ function site_scripts() {
 	if (!is_admin()) {
 
 		// We don't need oEmbed
-		wp_dequeue_script_script('wp-embed'); 
+		wp_dequeue_script('wp-embed'); 
 		// Remove WP jQuery and Migrate
-		wp_dequeue_script_script('jquery');
+		wp_dequeue_script('jquery');
 		// USe your own jQuery source instead
 		//wp_register_script('jquery', get_template_directory_uri() . '/vendor/jquery/jquery-deprecated-sizzle-wrap.min.js', false, '1.11.0');
-		wp_dequeue_script_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', false, '1.12.4');
+		wp_dequeue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', false, '1.12.4');
 		wp_enqueue_script('jquery');
 
 		// Load What-Input files in footer
