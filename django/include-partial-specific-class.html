@@ -1,0 +1,9 @@
+<!-- where you want to include your file -->
+{% include 'partials/logo-container.html' %}
+
+<!-- add your specific class -->
+
+{% include 'partials/logo-container.html' with header_class='provider-bar' %}
+
+<!-- then in your html - this will inherit the specific class you applied in the include above -->
+<div class="header-bar {{ header_class }}">
