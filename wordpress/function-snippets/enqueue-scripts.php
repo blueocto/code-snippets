@@ -52,30 +52,19 @@ function site_scripts() {
 	if (!is_admin()) {
 
 		// We don't need oEmbed
-		wp_dequeue_script('wp-embed'); 
-		// Remove WP jQuery and Migrate
-		wp_dequeue_script('jquery');
-		// USe your own jQuery source instead
-		//wp_register_script('jquery', get_template_directory_uri() . '/vendor/jquery/jquery-deprecated-sizzle-wrap.min.js', false, '1.11.0');
-		wp_dequeue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', false, '1.12.4');
-		wp_enqueue_script('jquery');
+        wp_deregister_script( 'wp-embed' ); 
+        // Or comments
+        wp_deregister_script( 'comment-reply' );
 
-		// Load What-Input files in footer
-		wp_enqueue_script( 'what-input', get_template_directory_uri() . '/vendor/what-input/dist/what-input.min.js', array(), '', true );
-		
-		// Adding Foundation scripts file in the footer
-		wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/assets/js/foundation.js', array( 'jquery' ), '6.2.3', true );
-		
-		// Adding scripts file in the footer
-		wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
-	   
-		// Register main stylesheet
-		wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/style.css', array(), '', 'all' );
+        // Remove WP jQuery and Migrate
+        wp_deregister_script('jquery');
+        wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', false, null);
+        wp_enqueue_script('jquery'); 
 
-		// Comment reply script for threaded comments
-		if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
-		  wp_enqueue_script( 'comment-reply' );
-		}
+		// Load Your styles and scripts
+		wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/scripts.min.js', array( 'jquery' ), '', true );
+		wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/style.min.css', array(), '', 'all' );
+
 	}
 }
 add_action('wp_enqueue_scripts', 'site_scripts', 999);
