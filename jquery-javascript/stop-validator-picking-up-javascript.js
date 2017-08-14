@@ -1,5 +1,7 @@
 // <![CDATA[
 
-wrap your code with these
+$( document ).ready(function() {
+	console.log( "ready!" );
+});
 
 // ]]>
