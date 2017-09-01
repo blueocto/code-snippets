@@ -195,3 +195,32 @@ function initMap() {
 	  icon: image
 	});
 }
+
+// Custom pin with a radius circle
+function initMap() {
+	var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 10,
+		center: {lat: 54.972404, lng: -1.605157},
+	});
+
+	var image = '../assets/img/map-pin.min.svg';
+	var beachMarker = new google.maps.Marker({
+		position: {lat: 54.972404, lng: -1.605157},
+		map: map,
+		icon: image,
+	});
+
+	// Construct the circle for each value in citymap.
+	var cityCircle = new google.maps.Circle({
+		strokeColor: '#3FAFFA',
+		strokeOpacity: 1,
+		strokeWeight: 1,
+		fillColor: '#3FAFFA',
+		fillOpacity: 0.3,
+		map: map,
+		center: {lat: 54.972404, lng: -1.605157},
+		radius: 8046.72, // 5 miles
+	});
+}
+
+
