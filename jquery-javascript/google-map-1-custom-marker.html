@@ -1,41 +1,27 @@
 <!-- 1 map, custom marker -->
 
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript">
-// <![CDATA[
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAncBMGpkHOhTpx48AC-ktHNyJrEBeMCgk&callback=initMap" type="text/javascript"></script>
 
-function initialize() {
-	
-	var latlng = new google.maps.LatLng(54.91756,-1.410738);
-	
-	var myOptions = {
-		zoom: 14,
-		center: latlng,
-		backgroundColor: 'transparent',
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	};
-	
-	var image = '/img/content/hsf-map-pin.png';
-	var map = new google.maps.Map(document.getElementById('map'), myOptions);
-	var marker = new google.maps.Marker({
-	  position: new google.maps.LatLng(54.91756,-1.410738),
-	  map: map,
-	  icon: image
+<script>
+// <![CDATA[
+function initMap() {
+	var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 15,
+		center: {lat: 54.972404, lng: -1.605157}
 	});
 
-}
-		   
+	var image = '../assets/img/map-pin.min.svg';
+	var beachMarker = new google.maps.Marker({
+		position: {lat: 54.972404, lng: -1.605157},
+		map: map,
+		icon: image
+	});
+}		   
 // ]]>
 </script>
 
 
-<!-- Put this on the <body> -->
-
-<body onLoad="initialize()">
-
-
 <!-- Put this in your markup -->
-
 <div class="google_map">
 	<div id="map" class="map"></div>
 </div>
@@ -43,6 +29,12 @@ function initialize() {
 
 <!-- Styles -->
 <style>
-.google_map { position: relative; top: 0px; left: 0px; width: 960px; height: 403px;}
-	.map { width: 916px; height: 326px;}
+.google_map { 
+	width: 960px; 
+	height: 403px;
+}
+.map { 
+	width: 100%; 
+	height: 100%;
+}
 </style>
