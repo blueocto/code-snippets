@@ -14,6 +14,6 @@ $args = array(
 'pad_counts'   => $pad_counts,
 'hierarchical' => $hierarchical,
 'title_li'     => $title,
-'child_of'   => 47 //Device Type
+// 'child_of'   => 47 //Device Type
 ); ?>
 <?php wp_list_categories( $args ); ?>
