@@ -38,7 +38,7 @@ function blockgrid_gallery( $output, $atts, $instance ) {
  
 		$output .= '<div class="column">'
 			. '<a href="' . esc_url( $img_full ) . '">'
-			. '<img src="' . esc_url( $img ) . '" ' . $caption . ' class="thumbnail" alt="' . esc_attr( $attachment->title ) . '"  srcset="' . esc_attr( $img_srcset ) . '" sizes="(max-width: 50em) 87vw, 680px" />'
+			. '<img src="' . esc_url( $img ) . '" ' . $caption . ' class="thumbnail" alt="' . esc_attr( $attachment->title ) . '"  srcset="' . /* WATCH THIS FOR ALTERING IMAGE SIZES esc_attr( $img_srcset ) */ . '" sizes="(max-width: 50em) 87vw, 680px" />'
 			. '</a></div>';
 	}
  
