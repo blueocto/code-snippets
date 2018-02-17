@@ -2,6 +2,7 @@
 <p><?php the_field('field_name'); ?></p>
 
 
+
 <!-- If, else -->
 
 <?php 
@@ -11,6 +12,7 @@
         //do nothing
     }
 ?>
+
 
 
 <!-- Array values : checkbox, select, relationship, repeater -->
@@ -27,6 +29,7 @@
     // always good to see exactly what you are working with
     var_dump($values);
 ?>
+
 
 
 <!-- Repeater Field : https://www.advancedcustomfields.com/resources/repeater/  -->
@@ -53,6 +56,7 @@ endif;
 ?>
 
 
+
 <!-- Repeater : sub fields - If empty... else -->
 
 <?php 
@@ -64,9 +68,11 @@ endif;
 ?>
 
 
+
 <!-- Count rows in Repeater field -->
 
 <?php $count_document_downloads = count(get_sub_field('gallery_images')); echo $count_document_downloads; ?>
+
 
 
 <!-- Simple text fields -->
@@ -74,6 +80,10 @@ endif;
 <?php if( get_field( 'text_field' ) ): ?>
 	<?php the_field('text_field'); ?>
 <?php endif; ?>
+
+<!-- or -->
+
+<?php if( get_field( 'text_field', 123 ) ): ?>
 
 
 
@@ -104,12 +114,14 @@ endif;
 <img src="<?php echo $image_attributes[0]; ?>" alt="<?php echo $alt; ?>" />
 
 
+
 <!-- simple TRUE/FALSE with if / else statement -->
 <?php if (get_field('section_a')) { ?>
     <p>enabled</p>
 <?php } else { ?>
     <p>not enabled</p>
 <?php } ?>
+
 
 
 <!-- Is this article, a featured article? TRUE/FALSE -->
@@ -130,6 +142,8 @@ endif;
 ?>
 <?php get_template_part( 'parts/loop', 'advice-featured' ); ?>
 <?php endwhile; ?>
+
+
 
 <!-- then let's load a bunch of posts, excluding the featured article (as once its been set, then unset it still comes back as TRUE!) -->
 <?php 
