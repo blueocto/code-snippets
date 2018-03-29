@@ -1,22 +1,22 @@
-// Before anything...
+<!-- Before anything... -->
 <?php global $woocommerce; ?>
 
-// Output Cart URL
+<!-- Output Cart URL -->
 <?php echo $woocommerce->cart->get_cart_url(); ?>
 
-// Output "title" text
+<!-- Output "title" text -->
 <?php _e('View your shopping cart', 'woothemes'); ?>">
 
-// "% items" in Cart
+<!-- "% items" in Cart -->
 <?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?>
 
-// Get Cart Total
+<!-- Get Cart Total -->
 <?php echo $woocommerce->cart->get_cart_total(); ?>
 
-// Show SKU code
+<!-- Show SKU code -->
 <?php echo $_product->sku; ?>
 
-// Show quantity of a product as plain text (or near enough)
+<!-- Show quantity of a product as plain text (or near enough) -->
 <?php 
   if ( $_product->is_sold_individually() ) { 
   //$product_quantity = sprintf( '1 ', $cart_item_key ); 
