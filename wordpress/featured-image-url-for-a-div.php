@@ -23,6 +23,7 @@ if  ( ! empty( $featured_image_url ) ) { ?>
 <?php /** to dictate the size output use **/ ?>
 <?php $thumb_id = get_post_thumbnail_id( $post->ID );
 if ( '' != $thumb_id ) {
-    $thumb_url  = wp_get_attachment_image_src( $thumb_id, 'medium', true );
+	// setting last param to false, stops WP outputting the default image, so you can set your own.
+    $thumb_url  = wp_get_attachment_image_src( $thumb_id, 'medium', false );
     $featuredImage      = $thumb_url[0];
 }?>
