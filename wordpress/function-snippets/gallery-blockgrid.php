@@ -27,22 +27,29 @@ function blockgrid_gallery( $output, $atts, $instance ) {
 	if ( empty( $attachments ) )
 		return '';
  
-	$output = '<div class="wp-gallery row small-up-2 medium-up-' . intval( $atts[ 'columns' ] ) . '" >';
+	$output = '<div class="wp-gallery row small-up-1 medium-up-2 large-up-' . intval( $atts[ 'columns' ] ) . '" >';
  
 	foreach ( $attachments as $id => $attachment ) {
-		$img        = wp_get_attachment_image_url( $id, $atts[ 'size' ] );
-		$img_srcset = wp_get_attachment_image_srcset( $id, $atts[ 'size' ] );		
-		$img_full   = wp_get_attachment_image_url( $id, 'full' );
+		$img             = wp_get_attachment_image_url( $id, $atts[ 'size' ] );
+		$img_srcset      = wp_get_attachment_image_srcset( $id, $atts[ 'size' ] ); 
+		// set the size of the image when clicked on
+		$img_thumbnail   = wp_get_attachment_image_url( $id, 'thumbnail' );
+		$img_medium      = wp_get_attachment_image_url( $id, 'medium' );
+		$img_full        = wp_get_attachment_image_url( $id, 'full' );
  
 		$caption = ( ! $attachment->post_excerpt ) ? '' : ' data-caption="' . esc_attr( $attachment->post_excerpt ) . '" ';
  
-		$output = '<div class="column">'
+		$output .= '<div class="column">'
+			
+			// optional, if you want to open the full image
 			. '<a href="' . esc_url( $img_full ) . '">'
-			. '<img src="' . esc_url( $img ) . '" ' . $caption . ' class="thumbnail" alt="' . esc_attr( $attachment->title ) . '"  srcset="'/* . WATCH THIS FOR ALTERING IMAGE SIZES: esc_attr( $img_srcset ) . */'" sizes="(max-width: 50em) 87vw, 680px" />'
+
+			. '<img src="' . esc_url( $img ) . '" ' . $caption . ' class="thumbnail" alt="' . esc_attr( $attachment->title ) . '"  srcset="' . esc_attr( $img_srcset ) . '" sizes="(max-width: 50em) 87vw, 680px" />'
+			
 			. '</a></div>';
 	}
  
-	$output = '</div>';
+	$output .= '</div>';
  
 	return $output;
 }
