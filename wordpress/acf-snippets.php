@@ -87,7 +87,7 @@ endif;
 
 
 
-<!-- custom image as background on DIV - set as Image OBJECT -->
+<!-- custom image as background on DIV - set as Image OBJECT / Array -->
 <?php $image = get_field('image'); if( !empty($image) ): ?>
 <div style="<?php echo $image['url']; ?>">
 <?php endif; ?>
