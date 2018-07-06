@@ -6,11 +6,11 @@
 <!-- If, else -->
 
 <?php 
-    if (get_field('field_name')) { 
-        echo '<p>' . get_field('field_name') . '</p>';
-    } else {
-        //do nothing
-    }
+	if (get_field('field_name')) { 
+		echo '<p>' . get_field('field_name') . '</p>';
+	} else {
+		//do nothing
+	}
 ?>
 
 
@@ -18,16 +18,16 @@
 <!-- Array values : checkbox, select, relationship, repeater -->
 
 <?php 
-    $values = get_field('field_name');
-    if($values) {
-        echo '<ul>';
-        foreach($values as $value) {
-            echo '<li>' . $value . '</li>';
-        }
-        echo '</ul>';
-    }
-    // always good to see exactly what you are working with
-    var_dump($values);
+	$values = get_field('field_name');
+	if($values) {
+		echo '<ul>';
+		foreach($values as $value) {
+			echo '<li>' . $value . '</li>';
+		}
+		echo '</ul>';
+	}
+	// always good to see exactly what you are working with
+	var_dump($values);
 ?>
 
 
@@ -39,20 +39,52 @@
 // check if the repeater field has rows of data
 if( have_rows('repeater_field_name') ):
 
-    // loop through the rows of data
-    while ( have_rows('repeater_field_name') ) : the_row();
+	// loop through the rows of data
+	while ( have_rows('repeater_field_name') ) : the_row();
 
-        // display a sub field value
-        the_sub_field('sub_field_name');
+		// display a sub field value
+		the_sub_field('sub_field_name');
 
-    endwhile;
+	endwhile;
 
 else :
 
-    // no rows found
+	// no rows found
 
 endif;
 
+?>
+
+
+<!-- Repeater Field : Limit output to a particular number -->
+
+<?php
+	if( have_rows('staggered_boxes_matrix') ):
+		$i = 0;
+		
+		while ( have_rows('staggered_boxes_matrix') ) : the_row();
+			
+			$i++; 
+			if( $i > 5 ): // determine number here
+			break; 
+			endif; 
+?>
+
+	<div class="featured-post-row">
+		<div class="row">
+			
+			<div class="small-12 columns">
+				<h1><?php the_sub_field('sub-page_title');?></h1>
+			</div><!-- // small-12 columns -->
+
+		</div><!-- // row -->
+	</div><!-- // featured-post-row -->
+
+<?php
+		endwhile;
+	else :
+		// no rows found
+	endif;
 ?>
 
 
@@ -60,11 +92,11 @@ endif;
 <!-- Repeater : sub fields - If empty... else -->
 
 <?php 
-    $mysubfield = get_sub_field('file_size'); 
-    if (empty($mysubfield)) { //do nothing
-    } else {
-        echo "&nbsp;<small>&#91;" . $mysubfield . "&#93;</small>"; 
-    }
+	$mysubfield = get_sub_field('file_size'); 
+	if (empty($mysubfield)) { //do nothing
+	} else {
+		echo "&nbsp;<small>&#91;" . $mysubfield . "&#93;</small>"; 
+	}
 ?>
 
 
@@ -96,6 +128,16 @@ endif;
 
 <section class="welcome" <?php $image = get_field('image'); if( !empty($image) ): ?> style="background-image: url(<?php echo $image['url']; ?>)"<?php endif; ?>>
 
+<!-- or -->
+
+<?php
+	/** to dictate the size output use **/ 
+	$thumb_id = get_sub_field('background_image'); if ( '' != $thumb_id ) {
+		// setting last param to false, stops WP outputting the default image, so you can set your own.
+		$thumb_url  = wp_get_attachment_image_src( $thumb_id, 'medium', false );
+		$slideBgImage = $thumb_url[0];
+	} 
+?>
 
 
 <!-- Add image with alt + title data 
@@ -117,28 +159,28 @@ endif;
 
 <!-- simple TRUE/FALSE with if / else statement -->
 <?php if (get_field('section_a')) { ?>
-    <p>enabled</p>
+	<p>enabled</p>
 <?php } else { ?>
-    <p>not enabled</p>
+	<p>not enabled</p>
 <?php } ?>
 
 
 
 <!-- Is this article, a featured article? TRUE/FALSE -->
 <?php 
-    $args = array( 
-        'post_type' => 'advice', 
-        'posts_per_page' => 1, 
-        'meta_query' => array(
-            array(
-                'key' => 'featured_article',
-                'compare' => '=',
-                'value' => '1' // the Yes option is selected, to be featured
-            )
-        )
-    ); 
-    $loop = new WP_Query( $args ); 
-    while ( $loop->have_posts() ) : $loop->the_post(); 
+	$args = array( 
+		'post_type' => 'advice', 
+		'posts_per_page' => 1, 
+		'meta_query' => array(
+			array(
+				'key' => 'featured_article',
+				'compare' => '=',
+				'value' => '1' // the Yes option is selected, to be featured
+			)
+		)
+	); 
+	$loop = new WP_Query( $args ); 
+	while ( $loop->have_posts() ) : $loop->the_post(); 
 ?>
 <?php get_template_part( 'parts/loop', 'advice-featured' ); ?>
 <?php endwhile; ?>
@@ -147,27 +189,27 @@ endif;
 
 <!-- then let's load a bunch of posts, excluding the featured article (as once its been set, then unset it still comes back as TRUE!) -->
 <?php 
-    // to ensure we capture those that are not set, and those that are now unset
-    $args = array( 
-        'post_type' => 'advice', 
-        'posts_per_page' => 3, 
-        'meta_query' => array(
-            array(
-                'relation' => 'OR',
-                array(
-                    'key'     => 'featured_article',
-                    'compare' => '=', 
-                    'value'   => '0'
-                ),
-                array(
-                    'key'     => 'featured_article',
-                    'compare' => 'NOT EXISTS'
-                )
-            )
-        )
-    ); 
-    $loop = new WP_Query( $args ); 
-    while ( $loop->have_posts() ) : $loop->the_post(); 
+	// to ensure we capture those that are not set, and those that are now unset
+	$args = array( 
+		'post_type' => 'advice', 
+		'posts_per_page' => 3, 
+		'meta_query' => array(
+			array(
+				'relation' => 'OR',
+				array(
+					'key'     => 'featured_article',
+					'compare' => '=', 
+					'value'   => '0'
+				),
+				array(
+					'key'     => 'featured_article',
+					'compare' => 'NOT EXISTS'
+				)
+			)
+		)
+	); 
+	$loop = new WP_Query( $args ); 
+	while ( $loop->have_posts() ) : $loop->the_post(); 
 ?>
 
 <?php get_template_part( 'parts/loop', 'home' ); ?>
@@ -175,4 +217,56 @@ endif;
 <?php endwhile; ?>
 
 
+<!-- repeater field with post object 
+	 example, pull out a related product, on a Page -->
+<?php
+		// loop through the rows of data
+		while ( have_rows('related_products_matrix') ) : the_row();
 
+		// setup Post Object for dropdown field name
+		$postobject = get_sub_field('select_product'); 
+		if( $postobject ) :
+		$post = $postobject;
+		setup_postdata($post);
+	?>
+			
+		<a class="related--link" href="<?php the_permalink(); ?>">
+
+			<span class="related--title"><?php the_title(); ?></span>
+
+			<?php
+				// to dictate the size output use
+				$thumb_id = get_post_thumbnail_id( $post->ID );
+				if ( '' != $thumb_id ) {
+					// setting last param to false, stops WP outputting the default image, so you can set your own.
+					$thumb_url  = wp_get_attachment_image_src( $thumb_id, 'large', false );
+					$featuredImage      = $thumb_url[0];
+				}
+			 ?>
+
+			<img class="related--img" src="<?php echo $featuredImage; ?>" alt="" />
+
+			<span class="related--desc">
+				<?php 
+					$content = get_the_excerpt(); 
+					$trimmed_content = wp_trim_words( $content, 10, '&hellip;' ); 
+					echo $trimmed_content;
+				?>
+			</span>
+
+			<span class="shop-btn">View Details</span>
+			
+		</a>
+			
+	<?php 
+		// IMPORTANT - reset the $post object so the rest of the page works correctly
+		wp_reset_postdata(); 
+	 ?>
+
+<?php
+		endif; 
+	endwhile;
+else :
+// no rows found
+endif;
+?>
