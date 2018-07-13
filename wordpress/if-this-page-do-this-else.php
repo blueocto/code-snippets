@@ -51,3 +51,26 @@
 	$parent = new WP_Query( $args ); 
 	if ( $parent->have_posts() ) : 
 ?>
+
+
+<!-- helpful for swapping out hero's -->
+<?php // if is homepage...
+	 if ( is_front_page() ) { ?>
+
+<div class="responsive-embed widescreen video-container">
+</div>
+
+<?php }
+	// if is blog, or search ....
+	 elseif ( is_home() || is_search() ) { ?>
+
+<div class="hero-container parallax-window" role="banner">
+</div><!-- // hero-container -->
+
+<?php } else { ?>
+
+<div class="hero-container parallax-window" role="banner">
+</div><!-- // hero-container -->
+
+<?php } ?>
+
