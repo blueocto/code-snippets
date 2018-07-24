@@ -52,6 +52,7 @@
 	if ( $parent->have_posts() ) : 
 ?>
 
+
 <!-- helpful for swapping out hero's -->
 <?php // if is homepage...
 	 if ( is_front_page() ) { ?>
