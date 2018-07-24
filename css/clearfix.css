@@ -9,8 +9,10 @@
  */
 .cf:before,
 .cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+	/* 1 */
+    content: " "; 
+    /* 2 */
+    display: table; 
 }
 
 .cf:after {
