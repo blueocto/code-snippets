@@ -1,0 +1,136 @@
+<div class="cs-social-share">
+
+	<?php $post_url = "http://www.cakemasters.co.uk" /*get_the_permalink();*/ ?>
+
+	<?php $iframe_setup = "window.open(this.href,'window','width=640,height=480,resizable,scrollbars,toolbar,menubar');return false;" ?>
+	
+	<div class="cs-share-this-product facebook">
+		<a title="Share on Facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=<?php echo $post_url; ?>" onclick="<?php echo $iframe_setup; ?>">
+			<div class="social-share-icon-block">
+				<!-- replace with your own facebook icon source -->
+				<img src="https://theofficeplace.com/wp-content/uploads/share-icons/share-facebook.png">
+				<span class="share-text">Share</span>
+			</div>
+		</a>
+	</div>
+	
+	<div class="cs-share-this-product twitter">
+		<a title="Share on Twitter" target="_blank" href="https://twitter.com/intent/tweet?original_referer=<?php echo $post_url; ?>&amp;text=<?php the_title(); ?>&amp;tw_p=tweetbutton&amp;url=<?php echo $post_url; ?>" onclick="<?php echo $iframe_setup; ?>">
+			<div class="social-share-icon-block">
+				<!-- replace with your own twitter icon source -->
+				<img src="https://theofficeplace.com/wp-content/uploads/share-icons/share-twitter.png">
+				<span class="share-text">Tweet</span>
+			</div>
+		</a>
+	</div>
+	
+	<div class="cs-share-this-product google-plus">
+		<a title="Share on Google+" target="_blank" href="https://plusone.google.com/_/+1/confirm?hl=en-US&amp;url=<?php echo $post_url; ?>" onclick="<?php echo $iframe_setup; ?>">
+			<div class="social-share-icon-block">
+				<!-- replace with your own google+ icon source -->
+				<img src="https://theofficeplace.com/wp-content/uploads/share-icons/share-google-plus.png">
+				<span class="share-text">Share</span>
+			</div>
+		</a>
+	</div>
+	
+	<div class="cs-share-this-product pinterest">
+		<?php $thumb_id = get_post_thumbnail_id( $post->ID ); if ( '' != $thumb_id ) { 
+			$thumb_url  = wp_get_attachment_image_src( $thumb_id, 'medium', true ); 
+			$pinterest_image = $thumb_url[0];
+		} ?>
+		<a title="Share on Pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?media=<?php $pinterest_image; ?>&amp;url=<?php echo $post_url; ?>&amp;is_video=false&amp;description=<?php the_title(); ?>" onclick="<?php echo $iframe_setup; ?>">
+			<div class="social-share-icon-block">
+				<!-- replace with your own pinterest icon source -->
+				<img src="https://theofficeplace.com/wp-content/uploads/share-icons/share-pinterest.png">
+				<span class="share-text">Pin</span>
+			</div>
+		</a>
+	</div>
+	
+	<div class="cs-share-this-product linkedin">
+		<a title="Share on LinkedIn" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $post_url; ?>&title=<?php the_title(); ?>&summary=<?php get_the_excerpt(); ?>&source=<?php bloginfo('name'); ?>" onclick="<?php echo $iframe_setup; ?>">
+			<div class="social-share-icon-block">
+				<!-- replace with your own linkedin icon source -->
+				<img src="https://theofficeplace.com/wp-content/uploads/share-icons/share-linked-in.png">
+				<span class="share-text">Share</span>
+			</div>
+		</a>
+	</div>
+
+</div>
+
+
+
+
+.cs-social-share {
+  display: flex; 
+  flex-flow: row nowrap; 
+  justify-content: space-between; 
+}
+
+.cs-share-this-product {
+  width: 15%;
+  height: 30px;
+  padding: 1px 0px;
+  overflow: hidden; 
+  border-radius: 3px;
+  -webkit-filter:brightness(90%);
+  -moz-filter:brightness(90%);
+  -ms-filter:brightness(90%);
+  -o-filter:brightness(90%);
+  filter:brightness(90%);
+  transition: all .45s ease-in-out;
+  
+  &:hover {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    -webkit-filter:brightness(120%);
+    -moz-filter:brightness(120%);
+    -ms-filter:brightness(120%);
+    -o-filter:brightness(120%);
+    filter:brightness(120%);
+    
+    img {
+      left: 32%;
+      transform: scale(1);
+    }
+    
+    span.share-text {
+      opacity: 0;
+      left: 20px;
+      transform: rotateX(90deg) scale(0.3);
+    }
+  }
+  
+  a {
+    text-decoration:none;
+  }
+  
+  img {
+    width: 28px;
+    transition: all .5s ease;
+    position: relative;
+    left: 0;
+    transform: scale(.8);
+  }
+  
+  .social-share-icon-block {
+    
+    span.share-text {
+      font-size: 12px;
+      color: #fff;
+      position: relative;
+      left: -3px;
+      top:-8px;
+      transition: all .45s ease-in-out;
+    }
+  }
+  
+  &.facebook { background: #527EBF; }
+  &.twitter { background: #25C0E2; }
+  &.google-plus { background: #DB4A37; }
+  &.pinterest { background: #CD2129; }
+  &.linkedin { background: #147BB7; }
+  &.email { background: #0F75BC; }
+}
+
