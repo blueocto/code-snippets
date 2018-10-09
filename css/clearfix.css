@@ -10,13 +10,13 @@
 .cf:before,
 .cf:after {
 	/* 1 */
-    content: " "; 
-    /* 2 */
-    display: table; 
+	content: " "; 
+	/* 2 */
+	display: table; 
 }
 
 .cf:after {
-    clear: both;
+	clear: both;
 }
 
 /**
@@ -24,5 +24,20 @@
  * Include this rule to trigger hasLayout and contain floats.
  */
 .cf {
-    *zoom: 1;
+	*zoom: 1;
+}
+
+
+
+.clear {
+	*zoom: 1;
+
+	&::before,
+	&::after {
+		content: " "; 
+		display: table; 
+	}
+	&::after {
+		clear: both;
+	}
 }
