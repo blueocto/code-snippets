@@ -27,8 +27,10 @@
 	 
 	if ( is_page() && $post->post_parent ) {
 	    // This is a subpage
+	    echo "This is a subpage";
 	} else {
 	    // This is not a subpage
+	    echo "This is not a subpage";
 }
 ?>
 
