@@ -20,7 +20,7 @@
 
 	/*  displays only top level pages, but when viewing a page that has children (or is a child) it displays only children of that parent.
 
-	When visiting main page, all top level pages are listed in the sidebar.
+	When visiting main page, all top level pages are listed.
 	When visiting a top level page with no children, all top level pages are listed.
 	When visiting a top level page with children, just the children pages, and descendant pages, are listed.
 	When visiting a child page, just the children, and descendant pages, of that parent, are listed.
@@ -78,4 +78,4 @@
 		echo $output; 
 	}
 	
-	?>
+?>

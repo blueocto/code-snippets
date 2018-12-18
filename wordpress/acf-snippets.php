@@ -119,7 +119,7 @@ endif;
 
 
 
-<!-- custom image as background on DIV - set as Image OBJECT / Array -->
+<!-- custom image as background on DIV - set as Image Array -->
 <?php $image = get_field('image'); if( !empty($image) ): ?>
 <div style="<?php echo $image['url']; ?>">
 <?php endif; ?>
@@ -130,9 +130,11 @@ endif;
 
 <!-- or -->
 
+<!-- ensure set to an Image ID -->
 <?php
 	/** to dictate the size output use **/ 
-	$thumb_id = get_sub_field('background_image'); if ( '' != $thumb_id ) {
+	$thumb_id = get_sub_field('background_image');
+	if ( '' != $thumb_id ) {
 		// setting last param to false, stops WP outputting the default image, so you can set your own.
 		$thumb_url  = wp_get_attachment_image_src( $thumb_id, 'medium', false );
 		$slideBgImage = $thumb_url[0];
@@ -145,7 +147,7 @@ endif;
 	Make sure you set the Custom Field to "Image ID" as opposed to "Image URL" -->
 
 <?php 
-	if( get_field( "section_two_image" ) ):                           
+	if( get_field( "section_two_image" ) ):
 	$attachment_id = get_field('section_two_image'); 
 	$size = "full"; // (thumbnail, medium, large, full or custom size) 
 	$image_attributes = wp_get_attachment_image_src( $attachment_id, $size ); 
@@ -154,6 +156,7 @@ endif;
 ?>
 
 <img src="<?php echo $image_attributes[0]; ?>" alt="<?php echo $alt; ?>" />
+<?php endif; ?>
 
 
 
@@ -270,3 +273,39 @@ else :
 // no rows found
 endif;
 ?>
+
+
+<!-- ACF Image as Array, grab all sizes to use with Foundation Interchange -->
+
+<?php
+	// If on the Press | index.php page ... pull ACF field
+
+	$featuredImage = get_field('press_featured_image', 76);
+
+		if( !empty($featuredImage) ) :
+
+			// thumbnail
+			$featuredImage_featured_small = $featuredImage['sizes'][ 'featured-small' ];
+
+			// medium
+			$featuredImage_featured_medium = $featuredImage['sizes'][ 'featured-medium' ];
+
+			// large
+			$featuredImage_featured_large = $featuredImage['sizes'][ 'featured-large' ];
+
+			// xlarge
+			$featuredImage_featured_xlarge = $featuredImage['sizes'][ 'featured-xlarge' ];
+?>
+
+	<header class="featured-image">
+		<div class="featured-image--inner" role="banner" 
+		     data-interchange="[<?php echo $featuredImage_featured_small; ?>, small], 
+		                       [<?php echo $featuredImage_featured_medium; ?>, medium], 
+		                       [<?php echo $featuredImage_featured_large; ?>, large], 
+		                       [<?php echo $featuredImage_featured_xlarge; ?>, xlarge]">
+	   </div>
+	</header>
+
+<?php endif; ?>
+
+

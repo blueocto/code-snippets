@@ -100,9 +100,12 @@ add_filter('admin_footer_text', 'modify_footer_admin');
 
 
 /* ==========================================================================
-	Hide the upgrade notice in Admin - why do this?
+	Hide the update-nag notice in Admin
 ========================================================================== */
-add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) );
+function byebye_notices() {
+	remove_all_actions('admin_notices');
+}
+add_action('in_admin_header', 'byebye_notices');
 
 
 /* ==========================================================================

@@ -25,7 +25,7 @@ if  ( ! empty( $featured_image_url ) ) { ?>
 if ( '' != $thumb_id ) {
 	// setting last param to false, stops WP outputting the default image, so you can set your own.
 	$thumb_url  = wp_get_attachment_image_src( $thumb_id, 'medium', false );
-	$featuredImage      = $thumb_url[0];
+	$featuredImage = $thumb_url[0];
 }?>
 
 
