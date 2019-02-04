@@ -1,0 +1,47 @@
+{% comment %}
+to alternative the product layout sections
+
+{% include "attribute-forloop-odd" %}
+
+{% endcomment %}
+
+{% assign forloop_odd = false %}
+
+{% assign even_modulo = forloop.index | modulo: 2 | times: 1 %}
+
+{% if even_modulo == 1 %}
+  {% assign forloop_odd = true %}
+{% endif %}
+
+
+{% comment %}
+
+{% include "attribute-forloop-even" %}
+
+{% endcomment %}
+
+{% assign forloop_even = false %}
+
+{% assign even_modulo = forloop.index | modulo: 2 | times: 1 %}
+
+{% if even_modulo == 0 %}
+  {% assign forloop_even = true %}
+{% endif %}
+
+{% comment %}
+Then whenever i need them in a forloop i can just do this:
+{% endcomment %}
+
+{% for product in collection.products %}
+{% include "attribute-forloop-odd" %}
+{% include "attribute-forloop-even" %}
+
+Odd: {{ forloop_odd | json }}
+Even: {{ forloop_even | json }}
+{% endfor %}
+
+{% comment %}
+Or by alternating a class
+{% endcomment %}
+
+<div class="grid__item small--one-whole {% if forloop_even == true  %}large-up--push-one-twelfth{% endif %} large-up--four-twelfths general-product-card"></div>
