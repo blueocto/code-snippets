@@ -1,0 +1,149 @@
+{% schema %}
+  {
+    "name": "Sample Schema",
+
+    "settings": [
+      { 
+        "id": "image", 
+        "type": "image_picker", 
+        "label": "Image", 
+        "info": "info" 
+      },
+          {% comment %}{% if block.settings['timeline_image'] != blank %}
+            <img class="timeline__list__item__element__image" src="{{ block.settings['timeline_image'].src | img_url: '135x' }}" alt="{{ timeline_image.alt | escape | default: 'Timeline Element' }}" />
+          {% endif %}{% endcomment %}
+
+      { "id": "select", "type": "select", "label": "Select", "options":
+        [
+          { "value": "class-to-return1", "label": "None" },
+          { "value": "class-to-return2", "label": "Some" }
+        ],
+        "default": "class-to-return1", 
+        "info": "info"
+      },
+
+      { "id": "radio", "type": "radio", "label": "Radio", "options":
+        [
+          { "value": "class-to-return1", "label": "None" },
+          { "value": "class-to-return2", "label": "Some" }
+        ],
+        "default": "class-to-return1", 
+        "info": "info"
+      },
+
+      { "id": "checkbox", "type": "checkbox", "label": "Checkbox", "options":
+        [
+          { "value": "class-to-return1", "label": "None" },
+          { "value": "class-to-return2", "label": "Some" }
+        ],
+        "default": "class-to-return1", 
+        "info": "info"
+      },
+      
+      {
+        "type": "checkbox",
+        "label": "Large Spacer",
+        "id":"large-spacer"
+      },
+
+      { "id": "text", "type": "text", "label": "Text", "info": "info" },
+
+      { "id": "textarea", "type": "textarea", "label": "Textarea", "info": "info" },
+
+      { "id": "range", "type": "range", "label": "Range", "info": "info", "min": 0, "max": 100, "step": 5, "sec": "Text", "default": 50},
+
+      { 
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#ffffff"
+      },
+
+      {
+        "type": "font",
+        "id": "header_font",
+        "label": "Header font face"
+      },
+
+      {
+        "type": "collection",
+        "id": "feature_collection",
+        "label": "Feature collection"
+      },
+
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Can put URL or choose from site page/product/etc for link"
+      },
+
+      {
+        "type": "product",
+        "id": "feature_product",
+        "label": "Feature product"
+      },
+
+      {
+        "type": "blog",
+        "id": "sidebar_blog",
+        "label": "Blog for sidebar"
+      },
+
+      {
+        "type": "page",
+        "id": "homepage",
+        "label": "Front page"
+      },
+
+      {
+        "type": "link_list",
+        "id": "main_nav",
+        "label": "Main navigation"
+      },
+
+      {
+        "type": "snippet",
+        "id": "left_footer",
+        "label": "Leftmost footer content"
+      },
+
+      {
+        "type": "snippet",
+        "id": "left_footer",
+        "label": "Leftmost footer content"
+      },
+
+      {
+        "id": "video_url",
+        "type": "video_url",
+        "label": "Video URL",
+        "accept": ["youtube", "vimeo"],
+        "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+      },
+
+      {
+        "type": "richtext",
+        "id": "column_richtext",
+        "label": "Text",
+        "default": "<p>Default <em>richtext</em> <a href=\"https://example.com/\">content</a></p>"
+      },
+
+      {
+        "type": "html",
+        "id": "html_area",
+        "label": "Custom HTML",
+        "default": "<div><p>Some HTML content</p></div>"
+      },
+
+      {
+        "type": "article",
+        "id": "featured_article",
+        "label": "Article to feature on the home page"
+      }
+
+    ]
+  }
+{% endschema %}
+
+{% comment %}MORE{% endcomment %}
+{% comment %} https://help.shopify.com/themes/development/theme-editor/settings-schema#radio {% endcomment %}
