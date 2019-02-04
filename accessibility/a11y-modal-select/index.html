@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="stylesheet" type="text/css" href="src/assets/css/app.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="src/assets/js/app.js"></script>
+</head>
+
+<body>
+
+<h1>Example modal with styled Selects</h1>
+
+<p>Try this out by navigation with just your keyboard!</p>
+<p>When compressed, the CSS is 11kb and JS is 29kb</p>
+
+<p>Select a store</p>
+
+<button class="inline-content btn">
+  <img src="https://cdn.shopify.com/s/files/1/0098/8822/t/144/assets/flag-uk.svg?7665697879327051963">
+  <span>UK</span>
+  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-arrow-down" viewBox="0 0 14 9"><path d="M6.6 8.4L13.4 0H.2l6.4 8.4z" fill="#fff" fill-rule="evenodd"></path></svg>
+</button>
+
+<div id="inline-content" class="hidden">
+
+  <div class="custom-modal-styles">
+  
+    <div class="country-select">
+      <h5>Choose your location</h5>
+      <h6>Select region</h6>
+      <div id="exp_wrapper">
+        <button aria-haspopup="listbox" aria-labelledby="select_region exp_button" id="exp_button">Select Region</button>
+        <ul id="exp_elem_list" tabindex="-1" role="listbox" aria-labelledby="select_region" class="hidden" aria-activedescendant="select_region_Bk">
+          <li id="select_region_EU" role="option">
+            <img class="list-flag" src="https://cdn.shopify.com/s/files/1/0098/8822/t/144/assets/flag-eu.svg?7665697879327051963" alt=""> Europe
+          </li>
+          <li id="select_region_NA" role="option">North America</li>
+          <li id="select_region_AP" role="option">Asia Pacific</li>
+          <li id="select_region_Ot" role="option">Other</li>
+        </ul>
+      </div>
+    </div><!-- / country-select -->
+
+    <button class="btn btn--dark">Confirm</button>
+
+  </div>
+
+</div><!-- .modaal -->
+
+<script>
+  /*
+* trigger the modal, this can be put in with the HTML
+*/
+$(".inline-content").modaal({
+  content_source: '#inline-content'
+});
+</script>
+
+
+</body>
+</html>
