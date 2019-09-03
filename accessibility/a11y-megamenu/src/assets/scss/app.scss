@@ -1,0 +1,130 @@
+// Styles for basic display
+@mixin hidden {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.hidden {
+	@include hidden;
+}
+
+// Styles for Fenton
+body {
+	background-color: aliceblue;
+}
+
+.megamenu {
+
+	ul,
+	ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		a {
+			color: #004225;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.primary-menu {
+		display: flex;
+		outline: 1px dashed #f0f;
+
+		> li {
+
+			> a {
+				display: inline-block;
+				padding: 7px 7px 20px;
+				text-transform: uppercase;
+				border-bottom: 2px solid transparent;
+
+				&.has-children {
+					position: relative;
+					border-bottom-color: #eee;
+
+					&::after {
+						content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' data-prefix='fas' data-icon='chevron-down' class='svg-inline--fa fa-chevron-down fa-w-14' role='img' viewBox='0 0 448 512'><path fill='currentColor' d='M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z'/></svg>");
+						display: inline-block;
+						margin-left: 4px;
+						width: 10px;
+						height: 10px;
+					}
+
+					+ .menu-panel[aria-expanded="true"] {
+						position: absolute;
+						padding: 20px;
+						width: calc(100% - 40px);
+						background-color: #fff;
+					}
+				}
+			}
+		}
+	}
+
+	.secondary-menu {
+		width: 25%;
+		border-right: 1px solid #eee;
+
+		> li {
+
+			> a {
+				display: inline-block;
+				padding-bottom: 20px;
+
+				&.has-children {
+					
+					+ .menu-panel[aria-expanded="true"] {
+						position: absolute;
+						top: 20px;
+						left: calc(25% + 11px); //minus half the padding plus border
+
+						display: flex;
+						flex-flow: row wrap;
+						justify-content: center;
+						align-items: center;
+
+						padding: 0 20px;
+						width: calc(100% - 25% - 51px); //minus the secondary menu, minus padding and border
+						height: calc(100% - 40px); //minus the padding
+						outline: 1px dashed #f0f;
+					}
+				}
+			}
+		}
+	}
+
+	.tertiary-menu {
+		text-align: center;
+		outline: 1px dashed blue;
+
+		li {
+			display: inline;
+		}
+
+		a {
+			display: inline-block;
+			padding: 10px;
+			text-transform: uppercase;
+		}
+	}
+
+	// row of rings
+	.ring--img {
+		display: inline-block;
+		margin-bottom: 10px;
+	}
+
+	.ring--title {
+		display: block;
+	}
+}
