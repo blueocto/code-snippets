@@ -1,0 +1,29 @@
+<div style='overflow:hidden;height:450px;width:100%;'>
+    <div id='gmap_canvas' style='height:450px;width:100%;'></div>
+</div>
+
+<script>
+  var map;
+  function initMap() {
+    var myOptions = { 
+		zoom: 15, 
+		center: new google.maps.LatLng(54.956733, -1.669794), 
+		mapTypeId: google.maps.MapTypeId.ROADMAP 
+	};
+    
+    map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+
+    var image = '//www.getfoxy.co.uk/wp-content/uploads/2018/03/map-marker.png';
+	var marker = new google.maps.Marker({
+		position: {lat: 54.956733, lng: -1.669794},
+		map: map,
+		icon: image
+	});
+
+    infowindow = new google.maps.InfoWindow({ 
+    	content: '<strong>Foxy Hair Extensions</strong><br>Intu Metrocentre, Upper Red Mall<br>NE11 9YP Gateshead<br>' 
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4eZVbsKrdLmJrNJufveOSGNLvFRD-QQY&callback=initMap"
+async defer></script>
