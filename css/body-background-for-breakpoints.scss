@@ -1,0 +1,19 @@
+body {
+	background-color: #FFF59D; // yellow
+
+	@include breakpoint(medium) {
+		background-color: #FFCC80; // orange
+	}
+
+	@include breakpoint(large) {
+		background-color: #E57373; // red
+	}
+
+	@include breakpoint(xlarge) {
+		background-color: #64B5F6; // blue
+	}
+
+	@include breakpoint(xxlarge) {
+		background-color: #4DB6AC; // green
+	}
+}
