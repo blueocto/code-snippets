@@ -1,0 +1,28 @@
+!-- Creates a map in any div that has the class of '.map' using the example shown: -->
+<div data-marker="marker-1" data-lat="latitude" data-lng="longitude" class="map" id="map-1"></div>
+
+<script>
+function initMaps() {
+		let mapList = $('.map');
+		let i = 0;
+		mapList.each(function () {
+			i++;
+			let lat = parseFloat(this.dataset.lat);
+			let lng = parseFloat(this.dataset.lng);
+			let mapName = this.id;
+			let icon = "[ICON-URL]";
+			mapName = new google.maps.Map(document.getElementById(this.id), {
+				center: {lat: lat, lng: lng},
+				zoom: 16,
+				disableDefaultUI: true,
+			});
+			this.dataset.marker = new google.maps.Marker({
+				position: {lat: lat, lng: lng},
+				map: mapName,
+				icon: icon,
+			});
+		});
+	}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=[YOUR-API-KEY]&callback=initMaps"
+        async defer></script>
