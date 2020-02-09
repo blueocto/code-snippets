@@ -61,3 +61,11 @@
 
 // Works like wp_head in Wordress, includes necessary code snippets
 {{ content_for_header }}
+
+
+
+{% if section.settings.logo != blank %}
+    .site-header__logo-image {
+      max-width: {{ section.settings.logo_max_width }}px;
+    }
+  {% endif %}
