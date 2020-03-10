@@ -110,7 +110,7 @@ endif;
 <!-- Simple text fields -->
 
 <?php if( get_field( 'text_field' ) ): ?>
-	<?php the_field('text_field'); ?>
+	<?php the_field( 'text_field' ); ?>
 <?php endif; ?>
 
 <!-- or -->

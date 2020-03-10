@@ -7,7 +7,7 @@
 <?php /* Lets grab the URL for the featured image */ 
 	$featured_image_url = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) );
 
-if  ( ! empty( $featured_image_url ) ) { ?>
+if ( !empty( $featured_image_url ) ) { ?>
 
 <div style="background-image:url(<?php echo $featured_image_url; ?>);">
 
