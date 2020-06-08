@@ -1,0 +1,161 @@
+// ==============================================
+// Radio Buttons and Checkboxes w/ IE8 support
+// ==============================================
+
+// Purpose:
+// Copyright 2015 Ice Creates Ltd
+// http://www.icecreates.com
+// Developer: Guillaume Simonin.
+
+// CSS RADIO BUTTONS
+// hide browser radio button and create a beautiful pseudo-radio in label instead
+// ==============================================
+
+// .radio-button {
+	// position: absolute;
+	// visibility: hidden;
+	// checked state is done further down to not mess with IE8
+
+	// +label {
+	// 	display: inline-block;
+	// 	cursor: pointer;
+	// }
+
+	// +label.hidden {
+	// 	display: inline;
+	// 	font-size: 0;
+	// }
+
+	// default state, unchecked radio button
+	// +label:before {
+	// 	content: ' ';
+	// 	margin-right: 10px;
+	// 	height: 32px;
+	// 	width: 32px;
+	// 	display: inline-block;
+	// 	vertical-align: middle;
+	// 	background-image: url('../images/radio-button-states.svg');
+	// 	background-position: 2px -77px;
+	// 	background-repeat: no-repeat;
+	// }
+
+	// checked state is done further down to not mess with IE8
+	// &.hidden+label {
+	// 	display: none;
+	// }
+// }
+
+
+// ==============================================
+// CUSTOM RADIO BUTTONS
+
+// :checked styles for all browsers but IE 8 (prevent selectivizr support)
+
+// checked position of radio graphic
+// html:not(.no-js) .radio-button:checked+label:before {
+// 	background-position-y: 3px;
+// }
+
+// // hover position of radio graphic
+// html:not(.no-js) .radio-button:hover+label:before {
+// 	background-position-y: -37px;
+// }
+
+// html:not(.no-js) .radio-button:checked:hover+label:before {
+// 	background-position-y: 3px;
+// }
+
+// .no-js .radio-button {
+// 	filter: alpha(opacity=0);
+// 	visibility: visible;
+// }
+
+// .no-js .radio-button+label.checked:before,
+// .no-js .radio-button+label.checked {
+// 	background-position: 0 0;
+// 	content: ' ';
+// }
+
+
+// ==============================================
+// Components: CSS Checkboxes
+// class and its mixin for checkbox elements
+// (require label tag to be placed JUST AFTER checkbox)
+// Copyright 2015 Ice Creates Ltd
+// http://www.icecreates.com
+// Developer: Guillaume Simonin.
+
+.checkbox-wrapper {
+	position: relative;
+	cursor: pointer;
+}
+
+.checkbox-field {
+	margin: 0;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 45px;
+	height: 45px;
+	opacity: 0;
+}
+
+.checkbox-field+label,
+.checkbox-field+input[type='hidden']+label {
+	clear: left;
+	display: block;
+	margin-bottom: 10px;
+	// padding-top: 5px;
+}
+
+.checkbox-field+label:before,
+.checkbox-field+input[type='hidden']+label:before {
+	content: '';
+	background: white;
+	// border: 2px solid black;
+	height: 45px; // account for the borders
+	width: 45px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	// transform: translate3d(0px, 0, 10px);
+}
+
+.checkbox-field+label.hidden,
+.checkbox-field+input[type='hidden']+label.hidden {
+	font-size: 0;
+}
+
+// square background colour and image
+.checkbox-field:checked+label:before,
+.checkbox-field:checked+input[type='hidden']+label:before {
+	border-color: $brand-dark-teal;
+	content: url('../images/checkbox-ticked.svg');
+}
+
+.checkbox-field:focus+label:before,
+.checkbox-field:focus+input[type='hidden']+label:before {
+	border-color: $brand-light-blue;
+}
+
+.checkbox-field:checked:focus+label:before,
+.checkbox-field:checked:focus+input[type='hidden']+label:before {
+	border-color: $brand-light-blue;
+	content: url('../images/checkbox-ticked.svg');
+}
+
+
+
+// .checkbox-field:hover+label:before,
+// .checkbox-field:hover+input[type='hidden']+label:before {
+// 	border-color: $brand-dark-teal;
+// }
+
+.no-js .checkbox-field {
+	filter: alpha(opacity=0);
+	visibility: visible;
+}
+
+.no-js .checkbox-field+label.checked:before {
+	content: url('../images/radio-button-states.svg');
+}
