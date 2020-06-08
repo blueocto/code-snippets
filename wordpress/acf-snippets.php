@@ -1,6 +1,12 @@
+<!-- Simple text fields -->
+
+<?php if( get_field( 'text_field' ) ): ?>
+	<?php the_field( 'text_field' ); ?>
+<?php endif; ?>
+
+
 <!-- Single entry -->
 <p><?php the_field('field_name'); ?></p>
-
 
 
 <!-- If, else -->
@@ -106,12 +112,6 @@ endif;
 <?php $count_document_downloads = count(get_sub_field('gallery_images')); echo $count_document_downloads; ?>
 
 
-
-<!-- Simple text fields -->
-
-<?php if( get_field( 'text_field' ) ): ?>
-	<?php the_field( 'text_field' ); ?>
-<?php endif; ?>
 
 <!-- or -->
 
@@ -273,6 +273,36 @@ else :
 // no rows found
 endif;
 ?>
+
+
+<!-- Example switch case for Radio button ACF -->
+<?php
+	// color switcher for the Hero overlay
+	$colorSelected = get_field('hero_colour_overlay');
+	// var_dump($colorSelected);
+	switch($colorSelected) {
+		case 'Blue':
+			$classVal = 'blue-overlay';
+			break;
+		case 'Pink':
+			$classVal = 'pink-overlay';
+			break;
+		case 'Navy':
+			$classVal = 'navy-overlay';
+			break;
+		case 'Purple':
+			$classVal = 'purple-overlay';
+			break;
+		case 'Lime':
+			$classVal = 'lime-overlay';
+			break;
+		default:
+			$classVal = 'blue-overlay';
+			break;
+	}
+	//then echo the $classVal in the html element
+?>
+<div aria-hidden="true" class="header--bg-overlay <?php echo $classVal; ?>"></div>
 
 
 <!-- ACF Image as Array, grab all sizes to use with Foundation Interchange -->
