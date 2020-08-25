@@ -80,7 +80,7 @@ endif;
 		<div class="row">
 			
 			<div class="small-12 columns">
-				<h1><?php the_sub_field('sub-page_title');?></h1>
+				<h1><?php the_sub_field('sub-page_title'); ?></h1>
 			</div><!-- // small-12 columns -->
 
 		</div><!-- // row -->
