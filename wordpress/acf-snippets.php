@@ -4,6 +4,9 @@
 	<?php the_field( 'text_field' ); ?>
 <?php endif; ?>
 
+<!-- Theme Options field -->
+<?php the_field( 'field_name', 'option' ); ?>
+
 
 <!-- Single entry -->
 <p><?php the_field('field_name'); ?></p>
@@ -41,24 +44,22 @@
 <!-- Repeater Field : https://www.advancedcustomfields.com/resources/repeater/  -->
 
 <?php
-
-// check if the repeater field has rows of data
-if( have_rows('repeater_field_name') ):
-
+	// check if the repeater field has rows of data
+	if( have_rows( 'repeater_field_name' ) ):
+?>
+<?php
 	// loop through the rows of data
-	while ( have_rows('repeater_field_name') ) : the_row();
+	while ( have_rows( 'repeater_field_name' ) ) : the_row();
+?>
 
 		// display a sub field value
-		the_sub_field('sub_field_name');
+<?php the_sub_field( 'sub_field_name' ); ?>
 
-	endwhile;
-
-else :
-
+<?php 
+		endwhile;
+	else :
 	// no rows found
-
-endif;
-
+	endif;
 ?>
 
 
@@ -161,7 +162,7 @@ endif;
 
 
 <!-- simple TRUE/FALSE with if / else statement -->
-<?php if (get_field('section_a')) { ?>
+<?php if (get_field( 'section_a' )) { ?>
 	<p>enabled</p>
 <?php } else { ?>
 	<p>not enabled</p>
