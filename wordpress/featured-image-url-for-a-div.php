@@ -9,7 +9,7 @@
 
 if ( !empty( $featured_image_url ) ) { ?>
 
-<div style="background-image:url(<?php echo $featured_image_url; ?>);">
+<div style="background-image:url('<?php echo $featured_image_url; ?>');">
 
 <?php } else { ?>
 
@@ -28,7 +28,7 @@ if ( '' != $thumb_id ) {
 	$featuredImage = $thumb_url[0];
 }?>
 
-
+<div style="background-image:url('<?php echo $featuredImage; ?>'');">
 
 <?php 
 	/**

@@ -1,7 +1,7 @@
 <!-- Simple text fields -->
 
 <?php if( get_field( 'text_field' ) ): ?>
-	<?php the_field( 'text_field' ); ?>
+<?php the_field( 'text_field' ); ?>
 <?php endif; ?>
 
 <!-- Theme Options field -->
@@ -52,11 +52,10 @@
 	while ( have_rows( 'repeater_field_name' ) ) : the_row();
 ?>
 
-		// display a sub field value
 <?php the_sub_field( 'sub_field_name' ); ?>
 
+<?php endwhile; ?>
 <?php 
-		endwhile;
 	else :
 	// no rows found
 	endif;

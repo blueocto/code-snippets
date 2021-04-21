@@ -51,7 +51,7 @@ $posts = query_posts($query_string.'&cat=-9'); // exclude category 9 ?>
 
 <?php // Loop with WP_Query() ?>
 
-<?php $custom_query = new WP_Query('cat=-9'); // exclude category 9
+<?php $custom_query = new WP_Query(['cat=-9']); // exclude category 9
 while($custom_query->have_posts()) : $custom_query->the_post(); ?>
 
     <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
@@ -65,21 +65,21 @@ while($custom_query->have_posts()) : $custom_query->the_post(); ?>
 /*= OR =*/
 
 <?php // Loop 1
-$first_query = new WP_Query('cat=-1'); // exclude category
+$first_query = new WP_Query(['cat=-1']); // exclude category
 while($first_query->have_posts()) : $first_query->the_post();
 ...
 endwhile;
 wp_reset_postdata();
 
 // Loop 2
-$second_query = new WP_Query('cat=-2'); // exclude category
+$second_query = new WP_Query(['cat=-2']); // exclude category
 while($second_query->have_posts()) : $second_query->the_post();
 ...
 endwhile;
 wp_reset_postdata();
 
 // Loop 3
-$third_query = new WP_Query('cat=-3'); // exclude category
+$third_query = new WP_Query(['cat=-3']); // exclude category
 while($third_query->have_posts()) : $third_query->the_post();
 ...
 endwhile;
