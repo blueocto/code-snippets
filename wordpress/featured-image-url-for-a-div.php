@@ -28,7 +28,7 @@ if ( '' != $thumb_id ) {
 	$featuredImage = $thumb_url[0];
 }?>
 
-<div style="background-image:url('<?php echo $featuredImage; ?>'');">
+<div style="background-image:url('<?php echo $featuredImage; ?>');">
 
 <?php 
 	/**
