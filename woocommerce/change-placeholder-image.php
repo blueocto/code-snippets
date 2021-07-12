@@ -1,3 +1,4 @@
+<?php 
 add_action( 'init', 'custom_fix_thumbnail' );
 
 function custom_fix_thumbnail() {
