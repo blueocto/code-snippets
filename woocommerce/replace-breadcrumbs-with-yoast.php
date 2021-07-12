@@ -1,3 +1,4 @@
+<?php 
 /* 
 ** Replace WooCommerce Breadcrumbs With Yoast Breadcrumbs
 ** Last Tested: Jan 25, 2018 using Yoast SEO 6.2 on WordPress 4.9.2
