@@ -139,6 +139,7 @@
 		$thumb_url  = wp_get_attachment_image_src( $thumb_id, 'medium', false );
 		$slideBgImage = $thumb_url[0];
 	} 
+	echo $slideBgImage;
 ?>
 
 
