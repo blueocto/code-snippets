@@ -15,3 +15,16 @@ function the_post_thumbnail_caption() {
 <!-- In your template file -->
 
 <?php the_post_thumbnail_caption(); ?>
+
+<?php 
+
+// Customise the output but benefit from srcset
+
+if (get_sub_field("hero_image")) {
+	$heroImage = get_sub_field('hero_image');
+	$heroSize = array( 1200, 1200, false); // (thumbnail, medium, large, full or custom size)
+	$heroLoading = array( "loading" => "eager" );
+	if( $heroImage ) {
+		echo wp_get_attachment_image( $heroImage, $heroSize, '', $heroLoading );
+	}
+}
