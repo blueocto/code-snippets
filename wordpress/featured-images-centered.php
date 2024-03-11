@@ -7,6 +7,12 @@
 </div>
 <?php } ?>
 
+<?php 
+	if( function_exists( 'has_post_thumbnail' ) && has_post_thumbnail() ) {
+	the_post_thumbnail( array(940,940) );
+	} 
+?>
+
 
 <!-- CSS
 	.feat_img { float: none; margin: 0 auto 1em;}
