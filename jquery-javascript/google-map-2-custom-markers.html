@@ -1,0 +1,72 @@
+<html>
+<head>
+<!-- Styles -->
+<style>
+.google_map { 
+    width: 960px; 
+    height: 403px;
+    background-color: pink;
+}
+.map { 
+    width: 100%; 
+    height: 100%;
+}
+</style>
+</head>
+<body>
+
+<!-- Put this in your markup -->
+<div class="google_map">
+    <div id="map-1" class="map"></div>
+    <div id="map-2" class="map"></div>
+</div>
+
+
+
+
+<!-- Google Map -->
+<script loading=async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAncBMGpkHOhTpx48AC-ktHNyJrEBeMCgk" type="text/javascript"></script>
+
+
+<script>
+// <![CDATA[
+    function initialize() {
+        
+        var latlng = new google.maps.LatLng(51.4965178, -0.1464524);
+        
+        var myOptions = {
+            zoom: 14,
+            center: latlng,
+            icon: marker,
+            backgroundColor: 'transparent',
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        
+        var map = new google.maps.Map(document.getElementById('map-1'), myOptions);
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(51.4965178, -0.1464524),
+          map: map
+        });
+
+        var latlng2 = new google.maps.LatLng(54.9696784, -1.7127091);
+        
+        var myOptions = {
+            zoom: 14,
+            center: latlng2,
+            icon: marker,
+            backgroundColor: 'transparent',
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        
+        var map = new google.maps.Map(document.getElementById('map-2'), myOptions);
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(54.9696784, -1.7127091),
+          map: map
+        });
+        
+    }
+// ]]>
+</script>
+
+</body>
+</html>
