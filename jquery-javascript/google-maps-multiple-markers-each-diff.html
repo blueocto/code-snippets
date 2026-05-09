@@ -1,0 +1,101 @@
+<html>
+<head>
+
+<head>
+<title>Advanced Marker Accessibility</title>
+
+<style>
+/* 
+* Always set the map height explicitly to define the size of the div element
+* that contains the map. 
+*/
+#map,
+gmp-map {
+	width: 100%;
+	max-width: 800px;
+height: 600px;
+}
+
+/* 
+* Optional: Makes the sample page fill the window. 
+*/
+/*html,
+body {
+height: 50%;
+margin: 0;
+padding: 0;
+}*/
+</style>
+
+
+
+<!-- prettier-ignore -->
+<script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+({key: "_your_Key", v: "weekly", internalUsageAttributionIds: "gmp_git_jsapisamples_v1_advanced-markers" });</script>
+</head>
+<body>
+<gmp-map zoom="11" center="54.96379078872765, -1.599877313052825" map-id="4504f8b37365c3d0"></gmp-map>
+
+<script>
+// <![CDATA[
+const mapElement = document.querySelector('gmp-map');
+async function initMap() {
+    // Request needed libraries.
+    const { Map, InfoWindow } = (await google.maps.importLibrary('maps'));
+    const { AdvancedMarkerElement, PinElement } = (await google.maps.importLibrary('marker'));
+    // Set LatLng and title text for the markers.
+    // The first marker receives the initial focus when tab is pressed.
+    // Use arrow keys to move between markers; press tab again to cycle through the map controls.
+    const tourStops = [
+        {
+            position: { lat: 54.96379078872765, lng: -1.599877313052825 },
+            title: 'Citizens Advice Gateshead',
+        },
+        {
+            position: { lat: 54.97202611639541, lng: -1.6231308942137952 },
+            title: 'The Lumen',
+        },
+        {
+            position: { lat: 54.92988535001439, lng: -1.6259024868363097 },
+            title: 'SOS Group',
+        },
+        {
+            position: { lat: 55.02187805044449, lng: -1.5791616606255205 },
+            title: 'Greenbean / NRG Plc',
+        },
+        {
+            position: { lat: 54.99490402838479, lng: -1.429293659132157 },
+            title: 'South Tyneside Council',
+        }
+    ];
+    // Create an info window to share between markers.
+    const infoWindow = new InfoWindow();
+    // Create the markers.
+    tourStops.forEach(({ position, title }, i) => {
+        const pin = new PinElement({
+            //@ts-ignore
+            glyphText: `${i + 1}`,
+            scale: 1.5,
+        });
+        const marker = new AdvancedMarkerElement({
+            position,
+            title: `${i + 1}. ${title}`,
+            gmpClickable: true,
+        });
+        marker.append(pin);
+        mapElement.append(marker);
+        // Add a click listener for each marker, and set up the info window.
+        marker.addListener('click', ({ domEvent, latLng }) => {
+            const { target } = domEvent;
+            infoWindow.close();
+            infoWindow.setContent(marker.title);
+            infoWindow.open(marker.map, marker);
+        });
+    });
+}
+initMap();
+// ]]>
+</script>
+
+</body>
+</html>
