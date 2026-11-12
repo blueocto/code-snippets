@@ -59,3 +59,15 @@ swidth+="[^"]*["]|onunload+="[^"]*["]|border+="[^"]*["]|onclick+="[^"]*["]|sheig
 
 //Replace with:
 : $1
+
+/* Remove everything before an @ symbol, in an email */
+^[^@]*(?=@)
+
+/* Including the @ symbol */
+^[^@]*@
+
+/* Ignore the line above so you can do it line by line */
+[^@\s]*@
+
+
+
